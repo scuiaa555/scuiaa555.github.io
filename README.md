@@ -1,3 +1,5 @@
+Many thanks for such a nice template.
+
 # Kiko Plus Theme
 
 ![image](/images/image.png)
