@@ -8,6 +8,8 @@ comments: true
 share: true
 ---
 
+This notes also serve as a pratice of formatting, inserting images, links in markdown.
+
 ### 《Effective C++》
 
 ---
@@ -120,5 +122,42 @@ share: true
 
     ![Alt Text](https://scuiaa555.github.io/assets/images/2017-02-17-function.png "a")
 
-    **typical examples can be found here
+    **typical examples can be found here <http://en.cppreference.com/w/cpp/utility/functional/function>.
+    
+    An example (pp.173-175) shows how great is the combination of using `std::function` and `std::bind` together.
+    
+    ``` c++
+    class GameCharacter {
+    public:
+        //HeathCalcFunc 可以是任何“可调用物”（callable entity）,可被调用并接受
+        //任何兼容于GameCharacter之物，返回任何兼容于int的东西。
+        typedef std::function<int(const GameCharacter&)> HealthCalcFunc;
+        int healthValue() const {
+            return healthFunc(*this);
+        }
+    private:
+        HealthCalcFunc healthFunc;
+    }
+    
+    short calcHealth(const GameCharacter&);  //其返回值为non-int，可调用物的参数可被隐式转换为const GameCharacter&，
+                                             //其返回类型可被隐式转换为int。
+    
+    struct HealthCalculator {                //函数对象同样ok。
+        int operator()(const GameCharacter&) const {...}
+    };
+    
+    class GameLevel {                        //成员函数同样ok。
+    public:
+        float health(const GameCharacter&) const;
+    };
+    
+    GameCharacter ebg1(calcHealth);
+    GameCharacter ecc1(HealthCalculator());
+    
+    GameLevel currentLevel;
+    GameCharacter ebg2(std::bind(&GameLevel::health,currentLevel,_1)); //成员函数需要指定对象，所以需要std::bind。
+    ```
+    
+    
+    
 
