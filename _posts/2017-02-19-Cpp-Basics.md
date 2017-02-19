@@ -64,11 +64,11 @@ pass by value往往比pass by reference的效率高些。
 
 13. 转型动作
 
-  - old-style casts：
+    - old-style casts：
       - (T)expression
       - T(expression)
    
-  - new-style casts:
+    - new-style casts:
       - const_cast<T>(expression)：常量性转移
       - dynamic_cast<T>(expression)：用来决定某对象是否归属继承体系中的某个类型
       - reinterpret_cast<T>(expression)：e.g. 将pointer to int 转换为 int
@@ -78,44 +78,44 @@ pass by value往往比pass by reference的效率高些。
 
 15. C++的名称遮掩规则（name-hiding rules）所做的唯一事情是：遮掩名称。至于名称是否应和相同或不同的类型，并不重要。本例中一个名为`x`的`double`遮掩了一个名为`x`的`int`：(p.156)
 
-  ``` c++
-int x；
-void someFunc() {
-    double x;
-    std::cout>>x;
-}
-```
+    ``` c++
+    int x;
+    void someFunc() {
+        double x;
+        std::cout>>x;
+    }
+    ```
 
-  对于函数，也是一样，无论函数的parameter arguments一样还是不一样，对于成员来说，也无论是virtual还是non-virtual，只要函数名称一样，同样全部遮掩。
+    对于函数，也是一样，无论函数的parameter arguments一样还是不一样，对于成员来说，也无论是virtual还是non-virtual，只要函数名称一样，同样全部遮掩。
 
-  ``` c++
-  class Base {
-  public:
-      virtual void mf1()=0;
-      virtual void mf1(int);
-  };
+    ``` c++
+    class Base {
+    public:
+        virtual void mf1()=0;
+        virtual void mf1(int);
+    };
 
-  class Derived: public Base {
-  public:
-      virtual void mf1();
-  };
+    class Derived: public Base {
+    public:
+        virtual void mf1();
+    };
+  
+    Derived d;
+    d.mf1(5);       // wrong; Derived::mf1() hides both Base::mf1() and Base::mf1(int)
+    ```
 
-  Derived d;
-  d.mf1(5);       // wrong; Derived::mf1() hides both Base::mf1() and Base::mf1(int)
-  ```
+    如果想让原来的base class中的同名成员函数在Derived中可见，可在Derived class中加入
 
-  如果想让原来的base class中的同名成员函数在Derived中可见，可在Derived class中加入
+    `Using Base::mf1;`
 
-  `Using Base::mf1;`
+    而且
+  `d.mf1();`
+    依旧调用Derived class中的版本。
 
-  而且
-`d.mf1();`
-  依旧调用Derived class中的版本。
-
-  ``` c++
-  Base b;
-  b.mf(5);   //legal!
-  ```
-  **有时候你并不想继承base classes的所有函数，这在public继承是不可以理解的，但是在private继承之下它却是有意义的！！  (p.160)
+    ``` c++
+    Base b;
+    b.mf(5);   //legal!
+    ```
+    **有时候你并不想继承base classes的所有函数，这在public继承是不可以理解的，但是在private继承之下它却是有意义的！！  (p.160)
 
 16. 借由function wrapper来完成Strategy模式  (p.175)
