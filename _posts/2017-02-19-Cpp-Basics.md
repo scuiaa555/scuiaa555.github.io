@@ -8,9 +8,7 @@ comments: true
 share: true
 ---
 
-# C++ Basics
-
-## I. 《Effective C++》
+## 《Effective C++》
 
 ---
 1. const的好处
