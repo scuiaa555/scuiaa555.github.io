@@ -158,6 +158,55 @@ This notes also serve as a pratice of formatting, inserting images, links in mar
     GameCharacter ebg2(std::bind(&GameLevel::health,currentLevel,_1)); //成员函数需要指定对象，所以需要std::bind。
     ```
     
-    
-    
+17. 任何时候当你想要在template中指涉一个嵌套从属类型名称，就必须在紧邻它的前一个位置放上关键词typename。（有两个例外）(p.205)
 
+    从属的意思是指depend on这个template中参数，嵌套指的是有`::`,如`T::const_iterator`。
+    例外：typename不可以出现在base classes list内的嵌套从属类型名称之前，也不可在member initialization list中作为base class修饰符。
+    
+    ``` c++
+    template<typename T>
+    class Derived: public Base<T>::Nested {  //base classes list中不允许“template”。
+    public:
+        explicit Derived(int x):Base<T>::Nested(x) {  //member initialization list中不允许“template”
+            typename Base<T>::Nested temp;  //这个是嵌套从属类型名称。
+        }
+    };
+    ```
+    
+18. 由非类型模版参数很容易造成代码膨胀，如`SquareMatrix<double,5>`和`SquareMatrix<double,10>`则会具化为两份。这种往往可以消除，做法是以函数参数或class成员变量替换template参数。
+
+    ``` c++
+    template<typename T>
+    class SquareMatrixBase {
+    protected:
+        void invert(std::size_t matrixSize);
+    };
+    template<typename T, std::size_t n>
+    class SquareMatrix: private SquareMatrixBase<T> {
+    private:
+        using SquareMatrixBase<T>::invert;
+    public:
+        void invert() {this->invert(n);}
+    };
+    ```
+    
+19. 运用成员函数模版（member function template）接受所有兼容类型 (p. 220)
+
+    我们希望做的事是：`shared_ptr<Base> ptr=shared_ptr<Derived>();`或者copy constructor隐式接受。
+    
+    ``` c++
+    template<typename T>
+    class SmartPtr {
+    public:
+        template<typename U>
+        SmartPtr(const SmartPtr<U>& other):heldPtr(other.get()){...}
+        T* get() const { return heldPtr; }
+    private:
+        T* heldPtr;}
+    ```
+    我们使用成员初值列（member initialization list）来初始化`SmartPtr<T>` 之内类型为`T*`的成员变量，并以类型为`U*`的指针（由`SmartPtr<U>`持有）作为初值。这个行为只有当“存在某个隐式转换可将一个`U*`指针转为一个`T*`指针”时才能通过编译，而那正是我们想要的。
+    
+    如果你声明member templates用于“泛化copy构造”或”泛化assignment操作”，你还是需要声明正常的copy构造函数和copy assignment操作符。（p. 221）
+    
+20. 
+   
