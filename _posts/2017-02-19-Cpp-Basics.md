@@ -118,7 +118,7 @@ share: true
 	
 16. 借由function wrapper来完成Strategy模式  (p.175)
 
-    ![Alt Text](scuiaa555.github.io/assets/post sources/images/2017-02-17-function.png)
+    ![Alt Text](/post sources/2017-02-17-function.png)
 
-    **typical examples can be found here:
+    **typical examples can be found here
 
