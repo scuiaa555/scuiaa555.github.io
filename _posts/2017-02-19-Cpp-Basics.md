@@ -54,9 +54,7 @@ share: true
 
 9. shared_ptr 提供的某个构造函数接受两个实参：一个是被管理的指针，另一个是引用次数变成0时被调用的“删除器“ （deleter）。 (p.82)
 
-10. 如果窥探C++编译器的底层，你会发现，references往往以指针实现出来，因此pass by reference通常意味真正传递的是指针。因此如果你有个对象属于内置类型（例如int），
-pass by value往往比pass by reference的效率高些。
-一般而言，你可以合理假设“pass by value并不昂贵”的唯一对象就是内置类型，STL的迭代器（iterator）和函数对象。 (p.90)
+10. 如果窥探C++编译器的底层，你会发现，references往往以指针实现出来，因此pass by reference通常意味真正传递的是指针。因此如果你有个对象属于内置类型（例如int），pass by value往往比pass by reference的效率高些。一般而言，你可以合理假设“pass by value并不昂贵”的唯一对象就是内置类型，STL的迭代器（iterator）和函数对象。 (p.90)
 
 11. 只要类型T支持copying（通过copy构造函数和copy assignment操作符完成），缺省的swap实现代码就会帮你置换类型为T的对象，你不需要为此另外再做任何工作了。 (p.106)
 
@@ -117,5 +115,6 @@ pass by value往往比pass by reference的效率高些。
     b.mf(5);   //legal!
     ```
     **有时候你并不想继承base classes的所有函数，这在public继承是不可以理解的，但是在private继承之下它却是有意义的！！  (p.160)
-
+	
 16. 借由function wrapper来完成Strategy模式  (p.175)
+
