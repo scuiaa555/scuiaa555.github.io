@@ -8,7 +8,7 @@ comments: true
 share: true
 ---
 
-This notes also serve as a pratice of formatting, inserting images, links in markdown.
+This piece of notes also serves as a pratice of formatting, inserting images, links in markdown.
 
 ### 《Effective C++》
 
