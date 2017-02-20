@@ -211,5 +211,79 @@ This notes also serve as a pratice of formatting, inserting images, links in mar
     
     如果你声明member templates用于“泛化copy构造”或”泛化assignment操作”，你还是需要声明正常的copy构造函数和copy assignment操作符。（p. 221）
     
-20. 
+20. 使用traits classes (p.226)
+
+    Motivative example: STL迭代器有很多种，有些可以random access，有些不可以。当advance函数参数为可以random access的时候，我们希望`iter+=d;`,而为其他迭代器时我们只能进行d次`iter++;`。所以我们希望完成类似下面的判断来实现advance:
+    
+    ``` c++
+    template<typename IterT, typename DistT>
+    void advance(IterT& iter, DistT d) {
+        if (iter is a random access iterator) {   //需要在此进行判断
+            iter+=d;
+        }
+        else {
+            if (d>0) { while (d--) ++iter; }
+            else { while (d++) --iter; }
+        }
+    }
+    ```
+    
+    traits classes可以让你在编译期间取得某些类型信息！！！
+    
+    ``` c++
+    template <...>
+    class deque {
+    public:
+        class iterator {
+        public:
+            typedef random_access_iterator_tag iterator_category;
+            ...
+        };
+    };
+    template <...>
+    class list {
+    public:
+        class iterator {
+        public:
+            typedef bidirectional_iterator_tag iterator_category;
+            ...
+        };
+    };
+    
+    template<typename IterT>
+    struct iterator_traits {
+        typedef typename IterT::iterator_category iterator_categoty;
+    };
+    ```
+    
+    指针也是迭代器，支持random access，对template进行偏特化
+    
+    ``` c++
+    template<typename IterT>
+    struct iterator_traits<IterT*>
+    {
+        typedef random_access_iterator_tag iterator_category;
+    };
+    ```
+    
+    好了，现在可以开始使用traits classes。但是，下面的例子是**错误**的，因为`if`语句在运行期间才被核定，而非编译时期。
+    
+    ``` c++
+    template<typename IterT, typename DistT>
+    void advance(IterT& iter, DistT d) {
+        if (typeid(typename std::iterator_traits<IterT>::iterator_category)==typeid(std::random_access_iterator_tag))
+    }
+    ```
+    
+    正确的方式是使用重载。例子是random access iterator,其他的iterator类似。
+    
+    ``` c++
+    template<typename IterT, typename DistT>
+    void doAdvance(IterT& iter, DistT d, std::random_access_iterator_tag) {
+        iter+=d;
+    }
+    ```
+    
+    整合重载后，traits classes有可能在编译期间对类型执行if...else测试！！！ (p.232)
+    
    
