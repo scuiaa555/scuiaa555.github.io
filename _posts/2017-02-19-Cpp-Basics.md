@@ -173,7 +173,9 @@ This notes also serve as a pratice of formatting, inserting images, links in mar
     };
     ```
     
-18. 由非类型模版参数很容易造成代码膨胀，如`SquareMatrix<double,5>`和`SquareMatrix<double,10>`则会具化为两份。这种往往可以消除，做法是以函数参数或class成员变量替换template参数。
+18. 由非类型模版参数很容易造成代码膨胀，如`SquareMatrix<double,5>`和`SquareMatrix<double,10>`则会具化为两份。
+
+    这种往往可以消除，做法是以函数参数或class成员变量替换template参数。
 
     ``` c++
     template<typename T>
@@ -204,7 +206,8 @@ This notes also serve as a pratice of formatting, inserting images, links in mar
     private:
         T* heldPtr;}
     ```
-    我们使用成员初值列（member initialization list）来初始化`SmartPtr<T>` 之内类型为`T*`的成员变量，并以类型为`U*`的指针（由`SmartPtr<U>`持有）作为初值。这个行为只有当“存在某个隐式转换可将一个`U*`指针转为一个`T*`指针”时才能通过编译，而那正是我们想要的。
+    我们使用成员初值列（member initialization list）来初始化`SmartPtr<T>` 之内类型为`T*`的成员变量，并以类型为`U*`的指针（由`SmartPtr<U>`持有）作为初值。
+    这个行为只有当“存在某个隐式转换可将一个`U*`指针转为一个`T*`指针”时才能通过编译，而那正是我们想要的。
     
     如果你声明member templates用于“泛化copy构造”或”泛化assignment操作”，你还是需要声明正常的copy构造函数和copy assignment操作符。（p. 221）
     
