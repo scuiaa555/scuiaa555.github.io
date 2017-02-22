@@ -1,4 +1,3 @@
-Many thanks for such a nice template.
 
 # Kiko Plus Theme
 
