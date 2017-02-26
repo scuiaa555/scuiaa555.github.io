@@ -4,9 +4,11 @@ layout: default
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
     tex2jax: {
-    inlineMath: [ ['$','$'], ['\\(','\\)'] ],
-    displayMath: [ ['$$','$$'], ['\[','\]'] ]
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
     }
   });
 </script>
