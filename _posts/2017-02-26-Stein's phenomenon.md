@@ -8,9 +8,12 @@ comments: true
 share: true
 ---
 
-This piece of note also serves as the practise of transferring jupyter notebook to markdown.
+This piece of note also serves as the practise of transferring jupyter notebook to markdown
 
 `$ jupyter nbconvert *.ipynb --to markdown`
+
+and test of Mathjax.
+
 
 ## Stein's Phenomenon
 
