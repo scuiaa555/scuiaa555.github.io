@@ -21,16 +21,21 @@ We start with definition of inadmissible estimators.
 &emsp;&emsp;**DEFINITION** (Inadmissible)
 
 > An estimator $\hat{\mu_n}$ of the parameter $\mu$ is called **_inadmissible_** on $R^p$ with respect to the squared risk if there exists another estimator $\mu_n^*$ such that
-$$E||\mu_n^*-\mu ||^2\leq E||\hat{\mu}_n-\mu||^2\quad\quad \textit{for all }\mu\in R^p,$$
-and there exists $\mu_0\in R^p$ such that
-$$E||\mu_n^*-\mu_0 ||^2 < E||\hat{\mu}_n-\mu_0||^2.$$
+> 
+>$$E||\mu_n^*-\mu ||^2\leq E||\hat{\mu}_n-\mu||^2\quad\quad \textit{for all }\mu\in R^p,$$
+>
+>and there exists $\mu_0\in R^p$ such that
+>
+>$$E||\mu_n^*-\mu_0 ||^2 < E||\hat{\mu}_n-\mu_0||^2.$$
 
 &emsp;&emsp;In this case, we also call that $\mu_n^*$ dominates $\hat{\mu}_n$ . Otherwise, the estimator $\hat{\mu_n}$ is called admissible. An estimator is admissible if it is not systematically outperformed, i.e. if there does not exist another estimator which displays less error for all the underlying unknown parameters.
 
 According to the difinition, Stein's phenomenon can be desribed like:
 
 &emsp;&emsp;For $p>=3$, there exists $\hat{\mu}$ such that $\forall\mu$,
+
 $$E||\hat{\mu}_n-\mu ||^2 < E||\hat{\mu}^{MLE}_n-\mu_0||^2,$$
+
 which makes MLE inadmissible.
 
 A typical choice is the James-Stein estimator given by James-Stein (1961) for Gaussian distribution. To state formally,
