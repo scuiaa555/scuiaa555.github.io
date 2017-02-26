@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Stein's Phenomenon"
-description: "Monte Carlo test for James Stein estimator which is the origin of shrinkage for high dimensional data analysis"
+description: "Monte Carlo test for James Stein estimator which is the origin of shrinkage for high dimensional data analysis."
 date: 2017-02-17
 tags: [programming, python, notes]
 comments: true
@@ -12,7 +12,7 @@ This piece of note also serves as the practise of transferring jupyter notebook 
 
 `$ jupyter nbconvert *.ipynb --to markdown`
 
-and test of Mathjax.
+and test of MathJax.
 
 
 ## Stein's Phenomenon
