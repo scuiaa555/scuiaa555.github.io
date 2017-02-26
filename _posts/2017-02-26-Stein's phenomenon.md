@@ -47,9 +47,12 @@ A typical choice is the James-Stein estimator given by James-Stein (1961) for Ga
 
 > Suppose there is only one single observation $Y\thicksim N_p(\mu,I_p)$ (we want to estimate $\mu$). Then $\hat{\mu}^{MLE}=Y$. 
 > Define
-$$\hat{\mu}^{JS}_n=(1-\frac{(p-2)}{||Y||^2})Y,$$
+> 
+>$$\hat{\mu}^{JS}_n=(1-\frac{(p-2)}{||Y||^2})Y,$$
+>
 > then
-$$E_{\mu}||\hat{\mu}^{JS}-\mu||^2<E_{\mu}||Y-\mu||^2=E_{\mu}||\hat{\mu}^{MLE}-\mu||^2.$$
+> 
+>$$E_{\mu}||\hat{\mu}^{JS}-\mu||^2<E_{\mu}||Y-\mu||^2=E_{\mu}||\hat{\mu}^{MLE}-\mu||^2.$$
 
 Here, we use Monte Carlo simulation to verify this.
 
