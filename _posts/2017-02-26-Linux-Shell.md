@@ -99,6 +99,12 @@ share: true
       (here `-` represents `stdin`)
       3. Add line numbers at the beginning<br>
       `$ cat -n file`
+      
+   Redirection (p.14)
+   
+       1. `0---stdin`;`1---stdout`;`2---stderr`
+       2. `$ echo "text" > temp.txt`
+       3. `$ cmd 2>stderr.txt 1>stdout.txt`
 
       
 4. Array and associate array(like map in C++)
@@ -267,3 +273,46 @@ share: true
     `[[ $str1 != $str2 ]]`<br>
     `[[ -n $str ]]`: return true if str is non-empty;<br>
     `[[ -z $str ]]`: return true if str is empty.
+    
+12. Video and reply script (This is fun!!!) (p.45)
+
+    ```
+    $ script -t 2> timing.log -a output.session
+    type commands;
+    ...
+    exit
+    ```
+    
+    After videoing, to replay, use<br>
+    `$ scriptreplay timing.log output.session`<br>
+    Both files are needed, `timing.log` saves the time of commands executed, `output.session` saves the output.
+    
+13. Find (p.46)
+
+   1. List all the files and files in the sub paths starting from base_path<br>
+      `$ find base_path [-print]`
+   2. Find files through names<br>
+      `$ find path -name "*.txt" -print`<br>
+      `-iname` ignores the capital letters.<br>
+      `$ find . \( -name "*.txt" -o -name "*.pdf" \) -print`
+   3. Find by path<br>
+      `$ find /home/users -path "*/slynux/*" -print`
+   4. Negate condition<br>
+      `$ find . ! -name "*.txt" -print`
+   5. Control the search depth<br>
+      `$ find . -maxdepth 3 -mindepth 1 -name "f*" -print`<br>
+      Use `-maxdepth` and `-mindepth` to control the search region. When restrict the search only in the current directory, use `-maxdepth 1`.
+   6. Find by file category<br>
+      `$ find . -type d -print`<br>
+      `f`:file;`l`:symbolic link;`d`:directory;
+   7. Find by time<br>
+      `-atime`;`-mtime`;`-ctime`
+   8. Find by size<br>
+      `$ find . -type f -size +2k`
+      `$ find . -type f -size -2M`
+      `$ find . -type f -size 2G`
+   9. Together with other commands by using `-exec`(best part!!!) (p.52)<br>
+      `$ find . -type f -name "*.c" -exec cat {} \;>all_c_files.txt`<br>
+      `{}` will be replaced by all files that are found one by one and `\;` is crucial that it is the argument of `-exec`.<br>
+      `-exec` only supports one-line command. If multiple commands are required, use script:<br>
+      `find . -exec ./commands.sh {} \;`
