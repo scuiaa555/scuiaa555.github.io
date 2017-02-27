@@ -90,6 +90,17 @@ share: true
     This is a test log file
     EOF
     ```
+    
+    More usage of `cat`: (p.42)
+      1. Cancatebate files<br>
+      `$ cat file1 file2 file3 ...`
+      2. Together with pipe<br>
+      `$ echo "text"|cat - file1`
+      (here `-` represents `stdin`)
+      3. Add line numbers at the beginning<br>
+      `$ cat -n file`
+
+      
 4. Array and associate array(like map in C++)
 
    Array is indexed by integers, i.e., 0,1,2,...<br>
