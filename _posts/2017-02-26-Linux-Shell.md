@@ -24,6 +24,7 @@ share: true
 	Usage of `printf` is the same as that in C.
 	
 2. Environment variables (p.6)
+
 	1. Check the environment variables that process uses<br>
       `$ cat /proc/$PID/environ`.<br>
       To look for PID for process, use `top` or<br>
