@@ -31,8 +31,8 @@ share: true
       `$ pgrep [process name]`.
    2. Assign value to variables<br>
   	    `var=value`<br>
-  	    It is different than `var = value` which is a mistake and means equality.
-  	   
+  	    It is different than `var = value` which is a mistake and means equality.<br>
+ 
   	    `
   	    fruit=apple;
   	    count=5;
