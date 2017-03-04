@@ -26,7 +26,7 @@ Image(filename='02_perceptron.png',width=600)
 
 
 
-![png](Classification_files/Classification_3_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png)
 
 
 
@@ -112,7 +112,7 @@ plt.show()
 
 
 
-![png](Classification_files/Classification_9_1.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_9_1.png)
 
 
 #### 2. Adaline (Adaptive linear neurons)
@@ -125,7 +125,7 @@ Image(filename='02_Adaline.png',width=600)
 
 
 
-![png](Classification_files/Classification_11_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_11_0.png)
 
 
 
@@ -156,7 +156,7 @@ Image(filename='03_logistic.png',width=600)
 
 
 
-![png](Classification_files/Classification_17_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_17_0.png)
 
 
 
@@ -202,7 +202,7 @@ plt.show()
 ```
 
 
-![png](Classification_files/Classification_22_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_22_0.png)
 
 
 ### SVM
@@ -216,7 +216,7 @@ Image(filename='03_SVM.png',width=600)
 
 
 
-![png](Classification_files/Classification_24_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_24_0.png)
 
 
 
@@ -283,7 +283,7 @@ Image(filename='03_gaussiankernel.png',width=600)
 
 
 
-![png](Classification_files/Classification_28_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_28_0.png)
 
 
 
@@ -308,7 +308,7 @@ plt.show()
 ```
 
 
-![png](Classification_files/Classification_30_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_30_0.png)
 
 
 ### Decision Tree
@@ -322,7 +322,7 @@ Image(filename='03_decision.png',width=600)
 
 
 
-![png](Classification_files/Classification_32_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_32_0.png)
 
 
 
@@ -354,7 +354,7 @@ plt.show()
 ```
 
 
-![png](Classification_files/Classification_35_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_35_0.png)
 
 
 ### K-nearest neighbors (KNN)
@@ -380,5 +380,5 @@ plt.show()
 ```
 
 
-![png](Classification_files/Classification_38_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_38_0.png)
 
