@@ -31,13 +31,9 @@ share: true
       `$ pgrep [process name]`.
    2. Assign value to variables<br>
   	   `var=value`<br>
-  	   It is different than `var = value` which is a mistake and means equality
-  	   
-  	    ```
-  	    fruit=apple
-  	    count=5
-  	    echo "We have $count ${fruit}(s)"
-  	    ```
+  	   It is different than `var = value` which is a mistake and means equality.
+  	
+
   	   
    3. Use `export` to set environment variables<br>
    	   `$ export PATH="$PATH:/home/user/bin"`
@@ -317,3 +313,7 @@ share: true
       `{}` will be replaced by all files that are found one by one and `\;` is crucial that it is the argument of `-exec`.<br>
       `-exec` only supports one-line command. If multiple commands are required, use script:<br>
       `find . -exec ./commands.sh {} \;`
+      
+14. Xargs (p.54)
+
+    
