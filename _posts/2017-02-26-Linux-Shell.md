@@ -289,7 +289,6 @@ share: true
     Both files are needed, `timing.log` saves the time of commands executed, `output.session` saves the output.
     
 13. Find (p.46)
-
    1. List all the files and files in the sub paths starting from base_path<br>
       `$ find base_path [-print]`
    2. Find files through names<br>
