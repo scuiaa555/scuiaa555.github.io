@@ -32,7 +32,8 @@ share: true
    2. Assign value to variables<br>
   	   `var=value`<br>
   	   It is different than `var = value` which is a mistake and means equality.<br>
-  	   `fruit=apple; count=5; echo "We have $count ${fruit}(s)"`  
+  	   ```fruit=apple; count=5; 
+  	   echo "We have $count ${fruit}(s)"```
    3. Use `export` to set environment variables<br>
    	   `$ export PATH="$PATH:/home/user/bin"`
    	   
