@@ -37,6 +37,7 @@ share: true
   	   count=5
   	   echo "We have $count ${fruit}(s)"
   	   ```
+  	   
    3. Use `export` to set environment variables<br>
    	   `$ export PATH="$PATH:/home/user/bin"`
    	   
