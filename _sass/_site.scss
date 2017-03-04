@@ -183,21 +183,21 @@ body {
     }
 
     &-title {
-      margin-bottom: .3rem;
-      font-size : 2rem;
+      margin-bottom: .1rem;
+      font-size : 1rem;
       font-weight: 600;
     }
 
     &-date {
       color: $oc-gray-7;
-      font-size: .8rem;
+      font-size: .4rem;
       text-transform: uppercase;
     }
 
     &-desc {
       color: $oc-gray-8;
-      margin-bottom: .25rem;
-      font-size :1rem;
+      margin-bottom: .1rem;
+      font-size :0.5rem;
     }
   }
 
