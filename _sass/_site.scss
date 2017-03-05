@@ -165,12 +165,12 @@ body {
 
 .list {
   &-post {
-    padding: 4% 2%;
+    padding: 2% 1%;
     
     &:hover {
       background-color: $background-over-color;
       border-color: transparent;
-      border-radius: 5px;
+      border-radius: 10px;
     }
 
     a {
