@@ -32,8 +32,7 @@ share: true
    2. Assign value to variables<br>
   	   `var=value`<br>
   	   It is different than `var = value` which is a mistake and means equality.<br>
-  	   ```fruit=apple; count=5; 
-  	   echo "We have $count ${fruit}(s)"```
+  	   `fruit=apple; count=5; echo "We have $count ${fruit}(s)"`
    3. Use `export` to set environment variables<br>
    	   `$ export PATH="$PATH:/home/user/bin"`
    	   
@@ -315,4 +314,47 @@ share: true
       
 14. Xargs (p.54)
 
+    `xargs` will be next to `|` , through `stdin`(`stdout` of previous command before `|`), provides the arguments to commands after `xargs`.<br>
+    `$ command | xargs [] command`
+    
+    `$ echo arg1 | xargs ./commands.sh ` is equivalent to `$ ./commands.sh arg1`<br>
+    `$ echo arg1 | xargs -I {} ./commands.sh -p {} -l` is equivalent to `$ ./commands.sh -p arg1 -l`
+    
+    There is a very important point when combining `find` and `xargs`, i.e., must use `\0` as separate letter, by<br>
+    `$ find . -type f -name "*.txt" -print0 | xargs -0 rm -f` (remove all the *.txt).
+    Here `-0` represents `xargs` treats `\0` as separate letter, consistent with `find -print0`.
+    
+    Exercise: calculate all the lines in *.c: <br>
+    `$ find -type f -name "*.c" -print0 | xargs -0 wc -l` 
+    
+15. Subtract name or extension name
+
+    ```
+    file_jpg="sample.jpg'
+    name=${file_jpg%.*}
+    echo $name
+    
+    output: sample
+    
+    extension=${file_jpg#*.}
+    echo $extension
+    
+    output: jpg
+    ```
+    
+16. Rename bunch of files
+
+    ```
+    #!/bin/bash
+    count=1
+    for img in `find . -iname '*.png' -o -iname '*.jpg' -type f -maxdepth 1`
+    do 
+      new=image-$count.${img##*.}
+      echo "Renaming $img to $new"
+      mv "$img" "$new"
+      let count++
+    done  
+    ```
+    
+    
     
