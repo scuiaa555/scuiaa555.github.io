@@ -201,10 +201,8 @@ share: true
    ```
    
 10. Loops
+    1. For loop
 
-   1. For loop <br>
-      Write something?
-  
       ```
       for var in list;
       do 
@@ -215,7 +213,7 @@ share: true
       for i in {0..9}
       ```
       
-   2. While loop
+    2. While loop
 
       ```
       while condition
@@ -223,7 +221,7 @@ share: true
          commands;
       done
       ```
-  3. Until loop
+   3. Until loop
 
      ```
      x=0;
