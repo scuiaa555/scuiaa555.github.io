@@ -201,7 +201,6 @@ share: true
    ```
    
 10. Loops
-
    1. For loop
 
       ```
@@ -363,7 +362,17 @@ share: true
     md5sum -c filename.md5           # check by using md5 file
     ```
     
-18. 
+18. Compare two files
+
+    Command `comm` only works for sorted files, so before `comm`, 
+    `$ sort A.txt -o A.txt ; sort B.txt -o B.txt`.
+    
+    `$ comm A.txt B.txt`
+    returns three columns where the first column shows the lines that appear in `A.txt` only, while the second column shows the lines that appear in `B.txt` only and the third column shows the common lines.
+    
+    Delete the columns by using
+    `$ comm A.txt B.txt -1 -2` or `$ comm A.txt B.txt -3`.
+    
     
     
     
