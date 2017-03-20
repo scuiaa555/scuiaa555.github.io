@@ -342,7 +342,7 @@ share: true
     output: jpg
     ```
     
-16. Rename bunch of files
+16. Rename bunch of files (p.79)
 
     ```
     #!/bin/bash
@@ -355,6 +355,15 @@ share: true
       let count++
     done  
     ```
+    
+17. Check the completeness of files (p.63)
+
+    ```
+    md5sum filename > filename.md5   # generate md5 file
+    md5sum -c filename.md5           # check by using md5 file
+    ```
+    
+18. 
     
     
     
