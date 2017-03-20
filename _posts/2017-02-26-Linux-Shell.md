@@ -201,8 +201,10 @@ share: true
    ```
    
 10. Loops
-   1. For loop
-
+   
+   1. For loop <br>
+      Write something before?
+  
       ```
       for var in list;
       do 
