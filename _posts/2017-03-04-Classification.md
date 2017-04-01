@@ -26,7 +26,7 @@ Image(filename='02_perceptron.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="36px" width="36px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="150px" width="36px"}
 
 
 
