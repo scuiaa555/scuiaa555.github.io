@@ -62,3 +62,21 @@ $$\sqrt{n}[h(\bar{X})-h(\mu)]\rightarrow N(0, \nabla h(\mu)\Sigma \nabla h(\mu)^
 
 where covariance matrix of $\vec{X}$ and $Y$.
 
+
+### 2. Antithetic Variates
+
+The method of antithetic variates attempts to reduce variance by introducing negative dependence between pairs of replications.
+
+In one-dimensional case, $F^{-1}(U)$ and $F^{-1}(1-U)$ both have distribution $F$.
+
+In multi-dimensional case, we need the additional assumption that the random variables in the random vectors are independent, then $(F_1^{-1}(U_1),...,F_d^{-1}(U_d))$ and ($F_1^{-1}(1-U_1),...,F_d^{-1}(1-U_d))$ both have the same distribution.
+
+Antithetic sampling produces a sequence of pairs of observations $(y_1,\tilde{y}_1),(y_2,\tilde{y}_2),...(y_n,\tilde{y}_n)$ whose features are
+
+- the pairs $(y_1,\tilde{y}_1),(y_2,\tilde{y}_2),...(y_n,\tilde{y}_n)$ are i.i.d;
+- for each $i$, $y_i$ and $\tilde{y}_i$ have the same distribution, though ordinarily they are not independent.
+
+The antithetic variates estimator is
+
+$$\hat{\mu}=\frac{1}{n}\sum_{i=1}^n(\frac{y_i+\tilde{y}_i}{2}).$$
+
