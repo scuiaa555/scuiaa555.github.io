@@ -102,8 +102,19 @@ path n: $W_1^n,...,W_d^n$ $\rightarrow y_n$<br>
 Stratified sampling refers broadly to any sampling mechanism that constrains the fraction of observations drawn from specific subsets (or strata) of the sample space, according to
 
 $$
-\begin{align}
+\begin{align*}
 E[Y]=E_X{E(Y|X)}&=\sum_{i=1}^KE(Y|X\in A_i)P(X\in A_i)\\
-&=
-\end{align}
+&=\sum_{i=1}^Kp_iE(Y|X\in A_i).
+\end{align*}
 $$
+
+The stratified sampling estimator
+
+$$\hat{\mu}=\sum_{i=1}^Kp_i\cdot\frac{1}{n_i}\sum_{j=1}^{n_i}y_{ij},$$
+
+where $y_{ij}$ is the j-th sample from i-th strata.
+
+There are two main issues that need to be considered
+
+- choosing the stratification variable $X$ (could be $Y$ itself), the strata $A_1,...,A_K$, and the allocation $n_1,...,n_K$;
+- generating samples from the distribution of $(X,Y)$ conditional on $X\in A_i$.
