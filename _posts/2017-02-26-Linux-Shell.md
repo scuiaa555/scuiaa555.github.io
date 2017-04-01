@@ -201,7 +201,6 @@ share: true
    ```
    
 10. Loops
-
     1. For loop
 
       ```
@@ -213,7 +212,7 @@ share: true
       for i in {a..z}
       for i in {0..9}
       ```
-      
+
     2. While loop
 
       ```
@@ -222,7 +221,7 @@ share: true
          commands;
       done
       ```
-      
+
     3. Until loop
 
      ```

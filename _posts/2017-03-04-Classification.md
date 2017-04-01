@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Traditional classification methods"
-description: "Notes on machie learning."
+title: "Traditional Classification Methods"
+description: "Notes on machine learning."
 date: 2017-02-26
 tags: [Machine learning, Python, notes]
 comments: true
