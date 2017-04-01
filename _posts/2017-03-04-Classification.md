@@ -26,7 +26,7 @@ Image(filename='02_perceptron.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="36px" width="36px"}
 
 
 
@@ -123,7 +123,7 @@ plt.show()
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_9_1.png)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_9_1.png =100x)
 
 
 #### 2. Adaline (Adaptive linear neurons)
