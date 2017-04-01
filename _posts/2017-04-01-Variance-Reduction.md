@@ -123,7 +123,7 @@ Stratifying uniforms:
 
 $$V_i=\frac{i-1}{n}+\frac{U_i}{n},$$
 
-and it is used to generate $Y|Y\in A_i,$ since 
+and it is used to generate $Y$ conditional on $Y\in A_i$, since 
 
 $$P(F^{-1}(V_i)\leq x)=P(V_i\leq F(x))=P(U_i \in B_i, P(B_i)=p_i)=p_i.$$
 
@@ -145,3 +145,29 @@ $$Var[Y]=\sum_{i=1}^Kp_i\sigma_i^2+\sum_{i=1}^Kp_i\mu_i^2-(\sum_{i=1}^Kp_i\mu_i)
 by Jensen's inequality. And the optimal allocation is
 
 $$q_i^*=\frac{p_i\sigma_i}{\sum_{l=1}^Kp_l\sigma_l}.$$
+
+#### Terminal stratification
+
+In the pricing of options, the most important feature of the path of an underlying asset is often its value at option expiration: much of the variability in the option's payoff can potentially be eliminated by stratifying the terminal value. Suppose that we need to stratify a discrete Brownian path $W(t_1),...W(t_m)$ and that we want to stratify the terminal value $W(t_m)$. We can accomplish this through Brownian bridge construction and show it in the following algorithm:
+
+```
+for i=1,...,K
+    generate U~Unif[0,1]
+    V<-(i-1+U)/K
+    W(t_m)<-\sqrt(t_m)\Phi^{-1}(V)
+    for j=1,...,m-1
+        generate Z~N(0,1)
+        W(t_j)<- Brownian bridge of W(t_m) and W(t_{j-1})
+```
+
+Usually, the terminal value of state variable is not the Brownian motion itself, instead, the terminal value of state variable say $S(T_m)$ would be determined by
+
+$$\int_0^{t_m}\sigma(u)dW_u,$$
+
+so we may prefer to stratify this integral instead. If $\sigma(t)$ is piecewise linear, we can simplify this to
+
+$$W(t_m)\sigma(t_{m-1})+\sum_{i=1}^{m-1}W(t_i)[\sigma(t_{i-1})-\sigma(t_i)].$$
+
+This is the special case of the problem of generating a multivariate normal random vector stratified along some projection. Suppose that $\xi\backsim N(\mu,\Sigma)$ in $R^d$ and that we want to generate $\xi$ with $X=v^T\xi$ stratified for some fixed vector $v\in R^d$. Since they are all normally distributed
+
+$$(\xi|X=x)\backsim N(\frac{\Sigma v}{v^T\Sigma v}x,\Sigma-\frac{\Sigma vv^T\Sigma}{v^T\Sigma v}).$$
