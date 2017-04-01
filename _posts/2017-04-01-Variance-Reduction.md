@@ -80,3 +80,18 @@ The antithetic variates estimator is
 
 $$\hat{\mu}=\frac{1}{n}\sum_{i=1}^n(\frac{y_i+\tilde{y}_i}{2}).$$
 
+We assume that the computational effort required to generate a pair $(y_i,\tilde{y}_i)$ is approximately twice the effort required to generate $y_i$. Then
+
+$$Var(\hat{\mu})\leq Var [\frac{1}{2n}\sum_{i=1}^{2n}y_i]$$
+
+if and only if
+
+$$Cov(y_i,\tilde{y}_i)\leq 0.$$
+
+To generate a Brownian path, assume that the discretise $(0,T)$ into $d$ intervals. Because of the property of independent increments of Brownian motion, random variables inside $(W_1,...,W_d)$ are independent. So the antithetic sampling can be implemented as
+
+path 1: $W_1^1,...,W_d^1$ $\rightarrow y_1$<br> 
+        $\quad \quad \  -W_1^1,...,-W_d^1$ $\rightarrow \tilde{y}_1$<br>
+        ...<br>
+path n: $W_1^n,...,W_d^n$ $\rightarrow y_n$<br> 
+        $\quad \quad \  -W_1^n,...,-W_d^n$ $\rightarrow \tilde{y}_n$<br>
