@@ -33,16 +33,24 @@ Image(filename='02_perceptron.png',width=600)
 Rosenblatt's perceptron first defines an **_activation function $\phi(z)$_** that takes a linear combination of certain input values $x$ and a corresponding weight vector $w$, 
 $$z=w_1x_1+...+w_mx_m$$
 where $z$ is called net input. Activation function is simply a function that transforms the net input into an output signal. In this case, the activation function is defined as the Heaviside step function:
+
+$$
 \begin{align*}
 \phi(z)=&\quad 1 \quad\textit{ if } z\geq\theta; \\
 &-1 \quad\textit{ otherwise}.
 \end{align*}
+$$
+
 $\theta$ here is also a parameter (which means it needs to be learned, not pre-defined by the user) and for consistency, we put it as one of the weights, say $w_0$. Then,
 $$z=w_0x_0+w_1x_1+...+w_mx_m,$$ where $x_0=1$ and 
+
+$$
 \begin{align*}
 \phi(z)=&\quad 1 \quad\textit{ if } z\geq 0; \\
 &-1 \quad\textit{ otherwise}.
 \end{align*}
+$$
+
 To predict (predict the label of testing data), Rosenblatt's perceptron directly use the value of $\phi(\hat{z})$. However, in AdaLine (see below), there will be an additional _quantizer_, since $\phi(z)$ could be of other form, e.g. linear in Adaline. 
 
 #### Weight updating procedure
@@ -54,10 +62,13 @@ To predict (predict the label of testing data), Rosenblatt's perceptron directly
       where $$\Delta w_j=\eta(y^i-\hat{y}^i)x_j^i,$$
       and $\eta$ is user-defined and is called **_learning rate_**.<br>
       Observations: 1. If $\hat{y}^i=y^i$, the weight vector will not change; 2. If misclassification occurs, the weights are being pushed towards the direction of the positive (class 1) or negative (class -1) target class, respectively:
+      
+      $$
       \begin{align*}
       \Delta w_j&=\eta(1-(-1))x_j^i=2\eta x_j^i;\\
       \Delta w_j&=\eta(-1-(-1))x_j^i=-2\eta x_j^i.
       \end{align*}
+      $$
 
 #### Convergence
 The convergence of Rosenblatt's perceptron is not guarateed if the classes are not linearly separable.
@@ -129,10 +140,14 @@ Image(filename='02_Adaline.png',width=600)
 
 
 
-Activation function now is $\phi(z)=\phi(w^Tx)=w^Tx$, where $w=(w_0,w_1,...w_m)'$ and quantizer (to do the prediction) is \begin{align*}
+Activation function now is $\phi(z)=\phi(w^Tx)=w^Tx$, where $w=(w_0,w_1,...w_m)'$ and quantizer (to do the prediction) is 
+
+$$
+\begin{align*}
 \hat{y}^i=q(\phi(z^i))=&\quad 1 \quad\textit{ if } \phi(z^i)\geq 0; \\
 &-1 \quad\textit{ otherwise}.
 \end{align*}
+$$
 
 #### Optimal weights
 To obtain the optimal weights, we minimize the **_cost function_**. In this case, it is Sum of Squared Errors(SSE):
@@ -162,10 +177,14 @@ Image(filename='03_logistic.png',width=600)
 
 In logistic regression, $$z=logit(P(y|x))=\frac{P(y|x)}{1-P(y|x)}=w_0x_0+w_1x_1+...w_mx_m\in [0,+\infty).$$ The activation function is
 $$\phi(z)=\frac{1}{1+e^{-z}}\in (0,1).$$ The quantizer is
+
+$$
 \begin{align*}
 \hat{y}^i=q(\phi(z^i))=&\quad 1 \quad\textit{ if } \phi(z^i)\geq 1/2; \\
 &-1 \quad\textit{ otherwise}.
 \end{align*}
+$$
+
 Cost function is negative log-likelihood
 $$J(w)=-\sum_i log(\phi(z^i))-(1-y^i)log(1-\phi(z^i)).$$
 
@@ -221,26 +240,37 @@ Image(filename='03_SVM.png',width=600)
 
 
 Every two parallel hyperplanes can be written as
+
+$$
 \begin{align*}
 w_0+w^Tx&=1\\
 w_0+w^Tx&=-1.
 \end{align*}
+$$
+
 The margin between these two hyperplane is $$\frac{2}{||w||}.$$
 Now the objective function of SVM becomes maximizing this margin under the constraint that the samples are classified correctly, i.e.,
+
+$$
 \begin{align*}
 &\min \frac{1}{2}||w||^2\\
 s.t. &w_0+w^Tx^i\geq 1 \quad if \quad y^i=1\\
 &w_0+w^Tx^i\leq -1 \quad if \quad y^i=-1,
 \end{align*}
+$$
+
 where the constraints are equivalent to
 $$y^i(w_0+w^Tx^i)\geq 1 \quad \forall i.$$
 It is a quadratic programming problem. The dual problem of this primal problem is
 
+$$
 \begin{align*}
 &\max \sum_i \lambda_i-\frac{1}{2}\sum_{i,j}\lambda_i \lambda_j y^i y^j x^{i'}\cdot x^j\\
 s.t. &\lambda_i\geq 0\\
 &\sum_i\lambda_iy^i=0.
 \end{align*}
+$$
+
 It is still a QP problem and strong duality always holds for QP, so the KKT conditions are satisfied. And according to the complementary slackness,
 $$\lambda_i(1-y^i(w_0+w^Tx))=0.$$ Therefore, when $y^i(w_0+w^Tx)>1$, $\lambda_i=0$. And when $y^i(w_0+w^Tx)=1$, $\lambda_i\neq 0$ and these vectors are called **_support vectors_** which lie on the hyperplanes.
 And according to gradient of Lagrangian with respect to x vanishes(KKT), optimal $w$ satisfies
@@ -251,10 +281,14 @@ is greater 0 or not.
 
 #### Dealing with the nonlinearly separable case using slack variables
 The _positive-values_ slack variable is simply added to the linear constraints:
+
+$$
 \begin{align*}
 &w_0+w^Tx^i\geq 1 \quad if \quad y^i=1-\xi^i\\
 &w_0+w^Tx^i\leq -1 \quad if \quad y^i=-1+\xi^i,
 \end{align*}
+$$
+
 so the new problem is to minimize 
 $$\frac{1}{2}||w||^2+C(\sum_i\xi^i),$$
 where $C$ is user defined. The problem is still a QP.

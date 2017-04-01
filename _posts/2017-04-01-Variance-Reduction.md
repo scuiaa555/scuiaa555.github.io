@@ -95,3 +95,15 @@ path 1: $W_1^1,...,W_d^1$ $\rightarrow y_1$<br>
         ...<br>
 path n: $W_1^n,...,W_d^n$ $\rightarrow y_n$<br> 
         $\quad \quad \  -W_1^n,...,-W_d^n$ $\rightarrow \tilde{y}_n$<br>
+        
+        
+### 3. Stratified Sampling
+
+Stratified sampling refers broadly to any sampling mechanism that constrains the fraction of observations drawn from specific subsets (or strata) of the sample space, according to
+
+$$
+\begin{align}
+E[Y]=E_X{E(Y|X)}&=\sum_{i=1}^KE(Y|X\in A_i)P(X\in A_i)\\
+&=
+\end{align}
+$$
