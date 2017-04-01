@@ -118,3 +118,30 @@ There are two main issues that need to be considered
 
 - choosing the stratification variable $X$ (could be $Y$ itself), the strata $A_1,...,A_K$, and the allocation $n_1,...,n_K$;
 - generating samples from the distribution of $(X,Y)$ conditional on $X\in A_i$.
+
+Stratifying uniforms: 
+
+$$V_i=\frac{i-1}{n}+\frac{U_i}{n},$$
+
+and it is used to generate $Y|Y\in A_i,$ since 
+
+$$P(F^{-1}(V_i)\leq x)=P(V_i\leq F(x))=P(U_i \in B_i, P(B_i)=p_i)=p_i.$$
+
+A crude but almost universally applicable method for generating samples conditional on a stratum generates unconditional samples and keeps those that fall in the target set.
+
+The variance 
+
+$$Var(\hat{\mu})=\sum_{i=1}^Kp_i^2Var[\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}]=\sum_{i=1}^Kp_i^2\frac{\sigma_i^2}{n_i}=\frac{\sigma^2(q)}{n},$$
+
+with
+
+$$\sigma^2(q)=\sum_{i=1}^K\frac{p_i^2}{q_i}\sigma_i^2, \quad and \quad \sigma_i^2=Var[Y_{ij}]=Var[Y|X\in A_i]\quad and \quad q_i=n_i/n.$$
+
+
+In the case of a proportional allocation of samples to strata, $q_i=p_i$, stratified sampling always decrease variance since
+
+$$Var[Y]=\sum_{i=1}^Kp_i\sigma_i^2+\sum_{i=1}^Kp_i\mu_i^2-(\sum_{i=1}^Kp_i\mu_i)^2\geq \sum_{i=1}^Kp_i\sigma_i^2=Var(\hat{\mu})$$
+
+by Jensen's inequality. And the optimal allocation is
+
+$$q_i^*=\frac{p_i\sigma_i}{\sum_{l=1}^Kp_l\sigma_l}.$$
