@@ -26,7 +26,7 @@ Image(filename='02_perceptron.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="300px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="300px" width="600px"}
 
 
 
@@ -136,7 +136,7 @@ Image(filename='02_Adaline.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_11_0.png){:height="300px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_11_0.png){:height="300px" width="600px"}
 
 
 Activation function now is $\phi(z)=\phi(w^Tx)=w^Tx$, where $w=(w_0,w_1,...w_m)'$ and quantizer (to do the prediction) is 
@@ -170,7 +170,7 @@ Image(filename='03_logistic.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_17_0.png){:height="300px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_17_0.png){:height="300px" width="600px"}
 
 
 In logistic regression, $$z=logit(P(y|x))=\frac{P(y|x)}{1-P(y|x)}=w_0x_0+w_1x_1+...w_mx_m\in [0,+\infty).$$ The activation function is
@@ -314,8 +314,7 @@ Image(filename='03_gaussiankernel.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_28_0.png)
-
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_28_0.png){:height="350px" width="700px"}
 
 
 #### Training via scikit-learn
