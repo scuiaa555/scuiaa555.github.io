@@ -8,7 +8,7 @@ comments: true
 share: true
 ---
 
-Background: By using Monte Carlo simulation to price derivatives, we always face the problem that simulate $N$ paths of stocks or other state variables or function of them $f(\cdot)$ as one-dimension $Y$ or d-dimension ($Y_1,Y_2,...,Y_d$) to estimate $E[Y]=\mu$. The $n$ paths are denoted as $y_1,...,y_n$, where each $y_i$ is a d-dimensional realisation (replication)of random vectors.
+Background: By using Monte Carlo simulation to price derivatives, we always face the problem that simulate $N$ paths of stocks or other state variables or function of them $f(\cdot)$ as one-dimension $Y$ or d-dimension ($Y_1,Y_2,...,Y_d$ like a discrete path of underlying asset) to estimate $E[Y]=\mu$. The $n$ paths are denoted as $y_1,...,y_n$, where each $y_i$ is a d-dimensional realisation (replication)of random vectors.
 
 The usual estimator is $\hat{\mu}=\bar{Y}=\frac{y_1+y_2+...+y_n}{n}$.
 
@@ -171,3 +171,55 @@ $$W(t_m)\sigma(t_{m-1})+\sum_{i=1}^{m-1}W(t_i)[\sigma(t_{i-1})-\sigma(t_i)].$$
 This is the special case of the problem of generating a multivariate normal random vector stratified along some projection. Suppose that $\xi\backsim N(\mu,\Sigma)$ in $R^d$ and that we want to generate $\xi$ with $X=v^T\xi$ stratified for some fixed vector $v\in R^d$. Since they are all normally distributed
 
 $$(\xi|X=x)\backsim N(\frac{\Sigma v}{v^T\Sigma v}x,\Sigma-\frac{\Sigma vv^T\Sigma}{v^T\Sigma v}).$$
+
+
+### 4. Importance Sampling
+
+When we switch from the objective probability measure to the risk-neutral measure, our goal is usually to obtain a more convenient representation of an expected value. However, in importance sampling, we change measures to try to give more weight to "important" outcomes thereby increasing sampling efficiency.
+
+Now we change our notation as considering the problem of estimating 
+
+$$\mu=E[h(X)]=\int h(x)f(x)dx.$$
+
+Then we can alternatively represent $\mu$ as
+
+$$\mu=\int h(x)\frac{f(x)}{g(x)}g(x)dx.$$
+
+This integral can be interpreted as an expectation with respect to the density $g$, we may therefore write
+
+$$\mu=\tilde{E}[h(X)\frac{f(X)}{g(X)}].$$
+
+The importance sampling estimator associated with $g$ is
+
+$$\hat{\mu}=\frac{1}{n}\sum_{i=1}^nh(X_i)\frac{f(X_i)}{g(X_i)}.$$
+
+The effective of variance reduction highly depends on the choice of $g$. The variance under new measure ranges from 0 to $+\infty$.
+
+Consider a concrete case that the underlying asset at a discrete time grid depends on the "increment" random variables, say $X_1,...,X_m$. For example, $X_i$ are normal in a GBM model case for stocks. Then if further assume $X_i$ has the same density (which means further they have equal time interval), a path-dependent payoff can be calculated under the new measure by
+
+$$E[h(S(t_1),S(t_2),...S(t_m))]=\tilde{E}[h(S(t_1),...S(t_m))\prod_{i=1}^m\frac{f(X_i)}{g(X_i)}].$$
+
+Also the above relationship applies to the case of stopping time as
+
+$$E[h(S(t_1),S(t_2),...S(t_N))1\{N<\infty\}]=\tilde{E}[h(S(t_1),...S(t_N))\prod_{i=1}^N\frac{f(X_i)}{g(X_i)}1\{N<\infty\}],$$
+
+where $N$ is a stopping time.
+
+
+#### Exponential change of measure
+
+For a cumulative distribution function $F$ on $R$, define the *cumulant generating function* as
+
+$$\psi(\theta)=\log \int_{-\infty}^{+\infty}e^{\theta x}dF(x).$$
+
+For each $\theta\in \Theta$, set
+
+$$F_{\theta}(x)=\int_{-\infty}^x e^{\theta u-\psi(\theta)}dF(u);$$
+
+each $F_{\theta}$ is cdf and forms an exponential family of distributions. The likelihood ratio for this transformation is
+
+$$\prod_{i=1}^m\frac{dF_0(X_i)}{dF_{\theta}(X_i)}=\exp(-\theta \sum_{i=1}^m X_i+n \psi(\theta)).$$
+
+For example, let $f$ be the univariate standard normal density and $g$ the univariate normal density with mean $\mu$ and variance 1. Then the likelihood ratio is
+
+$$\prod_{i=1}^m\frac{f(X_i)}{g(X_i)}=\exp(-\mu \sum_{i=1}^m X_i+ \frac{m}{2}\mu^2).$$
