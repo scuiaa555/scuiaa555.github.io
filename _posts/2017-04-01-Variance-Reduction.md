@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Variance Reduction of Monte Carlo"
-description: "A study note on variance reduction techniques that are introduced in the book of Glasserman's."
+description: "A study note on variance reduction techniques that are introduced in the book of Paul Glasserman's. This note includes control variates, antithetic variates. stratified sampling and importance sampling."
 date: 2017-04-01
 tags: [finance, notes]
 comments: true
