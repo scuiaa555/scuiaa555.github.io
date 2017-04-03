@@ -123,7 +123,7 @@ plt.show()
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_9_1.png =100x)
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_9_1.png)
 
 
 #### 2. Adaline (Adaptive linear neurons)
