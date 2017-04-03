@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Traditional Classification Methods"
-description: "Notes on machine learning."
+description: "Notes on machine learning from the book Python Machine Learning. The classification methods Perceptron, Adaline, Logistic Regression, SVM, Decision Tree and KNN are covered in this note."
 date: 2017-02-26
 tags: [Machine learning, Python, notes]
 comments: true
@@ -26,7 +26,7 @@ Image(filename='02_perceptron.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="150px" width="36px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_3_0.png){:height="200px" width="250px"}
 
 
 
