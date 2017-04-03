@@ -136,8 +136,7 @@ Image(filename='02_Adaline.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_11_0.png)
-{:height="300px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_11_0.png){:height="300px" width="500px"}
 
 
 Activation function now is $\phi(z)=\phi(w^Tx)=w^Tx$, where $w=(w_0,w_1,...w_m)'$ and quantizer (to do the prediction) is 
@@ -171,8 +170,7 @@ Image(filename='03_logistic.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_17_0.png)
-{:height="300px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_17_0.png){:height="300px" width="500px"}
 
 
 In logistic regression, $$z=logit(P(y|x))=\frac{P(y|x)}{1-P(y|x)}=w_0x_0+w_1x_1+...w_mx_m\in [0,+\infty).$$ The activation function is
@@ -235,8 +233,7 @@ Image(filename='03_SVM.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_24_0.png)
-{:height="300px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_24_0.png){:height="300px" width="700px"}
 
 
 Every two parallel hyperplanes can be written as
@@ -356,8 +353,7 @@ Image(filename='03_decision.png',width=600)
 
 
 
-![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_32_0.png)
-{:height="600px" width="500px"}
+![png](https://scuiaa555.github.io/assets/images/Classification_files/Classification_32_0.png){:height="600px" width="500px"}
 
 
 The objective function is to maximize the information gain at each split, which we define as follows:
