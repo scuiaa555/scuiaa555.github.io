@@ -1,13 +1,27 @@
 ---
 layout: default
 ---
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
 <header>
-  <div class="header-small">
+  <h1 class="header-small">
     <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
-  </div>
+  </h1>
 </header>
 <div class="post">
-  <div class="post-title">{{ page.title }}</div>
+  <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">
     <time>{{ page.date | date_to_string }}</time>
   </span>

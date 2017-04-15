@@ -7,45 +7,37 @@ name:               "Stone"
 
 author:
   facebook:         your-id
-  youtubeUser:      your-id
-  youtubeChannel:   your-id
   twitter:          your-id
   github:           your-id
-  stackoverflow:    your-id
-  quora:            your-id
   linkedin:         your-id
-  pinterest:        your-id
-  googlePlus:       your-id
-  instagram:        your-id
-  reddit:           your-id
   medium:           your-id
   tumblr:           your-id
   email:            cuishidong555@gmail.com
 
 copyright:
   year:             2017
-  name:             Stone
+  name:             Shidong Cui
 
 # Google-analytics
 google-analytics:
-  id:               ""
+  id:               "UA-92022227-1"
 
 # Disqus
 disqus:
-  id:               "kiko-plus"
+  id:               "cuishidong"
 
 # URL
 url:                "https://scuiaa555.github.io" # the base hostname & protocol for your site
 # url:                "http://localhost:4000" # use this url when you develop
-baseurl:            "" # the subpath of your site, e.g. /blog
+baseurl:             # the subpath of your site, e.g. /blog
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:           Asia/Seoul
+timezone:           Asia/Hong_Kong
 permalink:          /:year-:month-:day/:title/
 
 # Pagination
-paginate:           5
+paginate:           10
 paginate_path:      /page:num/
 
 # Markdown
@@ -62,7 +54,7 @@ nav:
   - name:           "Tags"
     url:            "/tags"
   - name:           "Github"
-    url:            "https://github.com/scuiaa"
+    url:            "https://github.com/scuiaa555"
 
 # Sass
 sass:
