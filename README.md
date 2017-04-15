@@ -1,5 +1,3 @@
-Test folk.
-
 # Kiko Plus Theme
 
 ![image](/images/image.png)

@@ -3,41 +3,49 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               "Stone"
+name:               "Kiko Plus"
 
 author:
   facebook:         your-id
+  youtubeUser:      your-id
+  youtubeChannel:   your-id
   twitter:          your-id
   github:           your-id
+  stackoverflow:    your-id
+  quora:            your-id
   linkedin:         your-id
+  pinterest:        your-id
+  googlePlus:       your-id
+  instagram:        your-id
+  reddit:           your-id
   medium:           your-id
   tumblr:           your-id
-  email:            cuishidong555@gmail.com
+  email:            your-id@your-email.com
 
 copyright:
   year:             2017
-  name:             Shidong Cui
+  name:             Kiko
 
 # Google-analytics
 google-analytics:
-  id:               "UA-92022227-1"
+  id:               ""
 
 # Disqus
 disqus:
-  id:               "cuishidong"
+  id:               "kiko-plus"
 
 # URL
-url:                "https://scuiaa555.github.io" # the base hostname & protocol for your site
+url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
 # url:                "http://localhost:4000" # use this url when you develop
-baseurl:             # the subpath of your site, e.g. /blog
+baseurl:            "/Kiko-plus" # the subpath of your site, e.g. /blog
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:           Asia/Hong_Kong
+timezone:           Asia/Seoul
 permalink:          /:year-:month-:day/:title/
 
 # Pagination
-paginate:           10
+paginate:           5
 paginate_path:      /page:num/
 
 # Markdown
@@ -54,7 +62,7 @@ nav:
   - name:           "Tags"
     url:            "/tags"
   - name:           "Github"
-    url:            "https://github.com/scuiaa555"
+    url:            "https://github.com/AWEEKJ/Kiko-plus"
 
 # Sass
 sass:
