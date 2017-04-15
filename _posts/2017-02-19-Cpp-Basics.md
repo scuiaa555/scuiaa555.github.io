@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Basics"
 description: "Notes on C++ reference books"
-date: 2017-02-17
+date: 2017-02-19
 tags: [programming, c++, notes]
 comments: true
 share: true
