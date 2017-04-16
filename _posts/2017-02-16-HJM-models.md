@@ -39,8 +39,69 @@ The above dynamic shows the arbitrage-free condition between the drift and volat
 > In a HJM one factor model, the price of the zero coupon bond can be written as
 
 > $$P(t,T)=\frac{P(0,T)}{P(0,t)}\exp(-\frac{1}{2}\int_0^t(\nu^2(u,T)-\nu^2(u,t))du+\int_0^t(\nu(u,T)-\nu(u,t))dW_u^Q.$$
-> 
-> 
+
+[Proof.] Based on the dynamic of instantaneous forward rate,
+
+$$f(t,T)=f(0,T)+\int_0^t(\sigma(u,T)\int_u^T\sigma(u,s)ds)du+\int_0^t\sigma(u,T)dW_u^Q.$$ 
+
+Therefore, 
+
+$$\begin{align*}
+P(t,T)&=\exp(-\int_t^Tf(t,v)dv)\\
+&=\exp(-\int_t^T[f(0,v)+\int_0^t(\sigma(u,v)\int_u^v\sigma(u,s)ds)du+\int_0^t\sigma(u,v)dW_u^Q]dv)\\
+&=\frac{P(0,T)}{P(0,t)}\exp(-\int_t^T[\int_0^t(-\sigma(u,v)\nu(u,v)dv)du+\int_0^t\sigma(u,v)dW_u^Q]dv)\\
+&=\frac{P(0,T)}{P(0,t)}\exp(\int_0^t(\int_t^T\sigma(u,v)\nu(u,v)dv)du-\int_0^t(\int_t^T\sigma(u,v)dv)dW_u^Q),
+\end{align*}
+$$
+
+where the last equation is by Fubini's theorem.
+
+Then, by integral by parts,
+
+$$
+\begin{align*}
+\int_t^T\sigma(u,v)\nu(u,v)dv&=-\int_t^T\frac{\partial \nu(u,v)}{\partial v}\nu(u,v)dv,
+\end{align*}
+$$
+
+where
+
+$$
+\begin{align*}
+\frac{\partial \nu(u,v)}{\partial v}\nu(u,v)&=\frac{\partial}{\partial v}[\nu^2(u,v)]-\nu(u,v)\frac{\partial \nu(u,v)}{\partial v}\nu(u,v)
+\end{align*}
+$$
+
+which implies
+
+$$
+\begin{align*}
+\frac{\partial \nu(u,v)}{\partial v}\nu(u,v)&=\frac{1}{2}\frac{\partial}{\partial v}[\nu^2(u,v)].
+\end{align*}
+$$
+
+So,
+
+$$
+\begin{align*}
+\int_t^T\sigma(u,v)\nu(u,v)dv&=-\int_t^T\frac{\partial \nu(u,v)}{\partial v}\nu(u,v)dv\\
+&=-\frac{1}{2}(\nu^2(u,T)-\nu^2(u,t)),
+\end{align*}
+$$
+
+and
+
+$$
+\begin{align*}
+\int_t^T\sigma(u,v)dv&=-\int_t^T-\frac{\partial \nu(u,v)}{\partial v}dv\\
+&=-(\nu(u,T)-\nu(u,t)).
+\end{align*}
+$$
+
+Combining these two equations gives rise to the result of zero coupon bonds.
+
+
+
 
 
 
