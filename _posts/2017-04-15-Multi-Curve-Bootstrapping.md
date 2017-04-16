@@ -88,11 +88,15 @@ When $t=T^S=T_0$, $Depo(T^S;T_0^F, T_0,T_1)=1$ and when $t=T_0^F$, $Depo(T_0^F;T
 
 ###### Three Overnight Deposits
 
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-deposit2.png)
+
 The first Deposit, denoted with ON (Overnight Deposit), starts today and matures tomorrow; the second Deposit, denoted with TN(Tomorrow-Next Deposit), starts tomorrow and matures 1 day after. The next Deposit, denoted with SN (Spot-Next Deposit) starts at spot date and matures 1 day after.
 
 
 
 #### 2. FRA
+
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-fra.png)
 
 The standard (textbook) FRA (collateralised) exchanges the floating interest with fixed at time $T_1$, which gives the present value at time $t$, such that $t\leq T_1$,
 
@@ -128,6 +132,8 @@ $$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P
 
 #### 3. Futures
 
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-futures.png)
+
 The payoff at time $T_0$ (same as market traded FRA) is given as
 
 $$Futures(T_0;\textbf{T})=N[1-Ibor(T_0^F;T_0^F,T_0,T_1)].$$
@@ -157,6 +163,9 @@ Note that there is a subtle point that the convexity adjustment is from today to
 
 #### 4. Interest Rate Swaps (IRS)
 
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-irs.png)
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-irs2.png)
+
 The fair rate of IRS is
 
 $$
@@ -184,6 +193,7 @@ where
 $$A^D(T^S;\textbf{S})=\sum_{j=1}^mP^D(T^S,S_j)\tau(S_{j-1},S_j).$$
 
 #### 5. Overnight Indexed Swaps (OIS)
+
 
 At time $T^S$,
 
