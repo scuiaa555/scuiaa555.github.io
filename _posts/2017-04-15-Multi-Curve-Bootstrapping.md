@@ -200,10 +200,11 @@ At time $T^S$,
 
 $$
 \begin{align*}
-R_{OIS}^j(T^S;\textbf{T},\textbf{S})=\frac{P^D(T^S,T_0)-P^D(T^S,T_n)}{A^D(T^S;\textbf{S})},
+R_{OIS}^j(T^S;\textbf{T},\textbf{S})=\frac{P^D(T^S,T_0)-P^D(T^S,T_n)}{A^D(T^S;\textbf{S})}.
 \end{align*}
 $$
 
-### Bootstrapping OIS curve 
+### Bootstrapping OIS curve
+
 
 
