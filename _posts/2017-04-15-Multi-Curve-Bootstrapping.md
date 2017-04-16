@@ -45,7 +45,7 @@ $T^S$ = start date/settlement date of the contract (usually equals to $Spot(t_0)
 $T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start date of period is also called spot lag, 2 business days for EUR and USD, 0 day for GBP, ref. p.2 of [2]) and <br>
 [$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $T_1=T_0+j$. $\large{T_{n}}$
 
----
+
 #### 1. Deposits
 
 ![png](https://scuiaa555.github.io/assets/images/2017-04-15-deposit.png)
@@ -66,13 +66,13 @@ where $R^j_{Depo}(t_0;T_0^F, T_0,T_1)$ is today's market quote and $\tau(T_0,T_1
 
 Note that the Deposit is not a collateralised contract. Hence we used a discount factor $P^j$ (not $P^D$) based on a rate tenor $j$ consistent with the Deposit rate tenor.
 
-At the settlement date $T^S=T_0$, the value of Deposit should equal to notional (=1 in this case), i.e.,
-
-$$Depo(T^S;T_0^F, T_0,T_1)=P^j(T^S,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)]=1,$$
-
-which gives rise to
-
-$$P^j(T^S,T_1)=\frac{1}{1+\tau(T_0,T_1)R^j_{Depo}(t_0;T_0^F, T_0,T_1)}.$$
+> At the settlement date $T^S=T_0$, the value of Deposit should equal to notional (=1 in this case), i.e.,
+> 
+> $$Depo(T^S;T_0^F, T_0,T_1)=P^j(T^S,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)]=1,$$
+> 
+> which gives rise to
+> 
+> $$P^j(T^S,T_1)=\frac{1}{1+\tau(T_0,T_1)R^j_{Depo}(t_0;T_0^F, T_0,T_1)}.$$
 
 This equation above is consistent with the definition of $P^j$, where 
 
@@ -127,9 +127,12 @@ At the settlement date $T^S$, the value of market traded FRA is zero, which lead
 
 $$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}\{[1+E_t^{Q_{T_1}}[Ibor(T_0^F;T_0^F,T_0,T_1)]\tau(T_0,T_1)]e^{C_{FRA}^j(t;T_0)}-1\}.$$
 
-In ***Mercurio, Fabio. "LIBOR market models with stochastic basis." (2010),*** it is proved that, for typical post credit market situations, the actual size of the convexity adjustment results to be below 1 bp, even for long maturities. Hence, in practical situation, we can discard the convexity adjustment and use the classical pricing expressions
-
-$$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
+> In ***Mercurio, Fabio. "LIBOR market models with stochastic basis." (2010),*** it is proved that, for 
+> typical post credit market situations, the actual size of the convexity adjustment results to be below 1
+>  bp, even for long maturities. Hence, in practical situation, we can discard the convexity adjustment and
+>  use the classical pricing expressions
+>
+> $$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
 
 ---
 #### 3. Futures

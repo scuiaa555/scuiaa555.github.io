@@ -10,10 +10,10 @@ share: true
 
 ### 1. Heath-Jarrow-Morton Model
 
--
-#### Arbitrage-free condition
 
-Assume that the risk-neutral measure exists and all the zero-coupon bond prices are driven by a common one-dimensional Brownian motion, i.e.,
+#### Arbitrage-free Condition
+
+Assume that the risk-neutral measure exists and all the zero-coupon bond prices are driven by a common one-dimensional Brownian motion (a strong assumption), i.e.,
 
 $$dP(t,T)=P(t,T)(r(t)dt+\nu(t,T)dW_t^Q).$$
 
@@ -33,5 +33,14 @@ $$df(t,T)=(\sigma(t,T)\int_t^T \sigma(t,s)ds)dt+\sigma(t,T)dW_t^Q.$$
 
 The above dynamic shows the arbitrage-free condition between the drift and volatility terms, which is also called *HJM condition*.
 
-#### 
+---
+#### Zero-coupon Bonds
+
+> In a HJM one factor model, the price of the zero coupon bond can be written as
+
+> $$P(t,T)=\frac{P(0,T)}{P(0,t)}\exp(-\frac{1}{2}\int_0^t(\nu^2(u,T)-\nu^2(u,t))du+\int_0^t(\nu(u,T)-\nu(u,t))dW_u^Q.$$
+> 
+> 
+
+
 
