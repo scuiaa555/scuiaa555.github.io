@@ -32,21 +32,28 @@ Depo(t;T_0^F, T_0,T_1)&=P^j(t,T_1)E_t^{Q_{T_1}}[Depo(T_1;T_0^F, T_0,T_1)]\\
 &=P^j(t,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)].
 \end{align*}
 $$
-where $R^j_{Depo}(T_0^F, T_0,T_1)$ is the market quotes.
+where $R^j_{Depo}(t_0;T_0^F, T_0,T_1)$ is today's market quote.
 
 Note that the Deposit is not a collateralised contract. Hence we used a discount factor $P^j$ (not $P^D$) based on a rate tenor $j$ consistent with the Deposit rate tenor.
 
-And by the definition of $P^j$, the fair value of the deposit
+At the settlement date $T^S$, the value of Deposit should equal to notional (=1 in this case), i.e.,
+
+$$Depo(T^S;T_0^F, T_0,T_1)=P^j(T^S,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)]=1,$$
+
+which gives rise to
+
+$$P^j(T^S,T_1)=\frac{1}{1+\tau(T_0,T_1)R^j_{Depo}(t_0;T_0^F, T_0,T_1)}.$$
+
+This equation above is consistent with the definition of $P^j$, where 
 
 $$
 \begin{align*}
 Depo(t;T_0^F, T_0,T_1)&=P^j(t,T_1)E_t^{Q_{T_1}}[Depo(T_1;T_0^F, T_0,T_1)]\\
 &=P^j(t,T_1)(1+\tau(T_0,T_1)E_t^{Q_{T_1}}[Ibor(T_0^F;T_0^F, T_0,T_1)]\\
-&=P^j(t,T_1)(1+\tau(T_0,T_1)\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T_0^F,T_0)}{P^j(T_0^F,T_1)}-1)).
+&=P^j(t,T_1)(1+\tau(T_0,T_1)\frac{1}{\tau(T_0,T_1)}(\frac{P^j(t,T_0)}{P^j(t,T_1)}-1))\\
+&=P^j(t,T_0).
 \end{align*}
 $$
 
-At the settlement date $T^S$, the value of Deposit should equal to notional (=1 in this case), i.e.,
-
-$$Depo(T^S;T_0^F, T_0,T_1)=P^j(T^S,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)]=1.$$
+When $t=T^S$, $Depo(T^S;T_0^F, T_0,T_1)
 
