@@ -45,8 +45,8 @@ $T^S$ = start date/settlement date of the contract (usually equals to $Spot(t_0)
 $T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start date of period is also called spot lag, 2 business days for EUR and USD, 0 day for GBP, ref. p.2 of [2]) and <br>
 [$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $T_1=T_0+j$. $\large{T_{n}}$
 
-
-##### 1. Deposits
+-
+#### 1. Deposits
 
 ![png](https://scuiaa555.github.io/assets/images/2017-04-15-deposit.png)
 {:height="50px" width="600px"}
@@ -94,7 +94,7 @@ When $t=T^S=T_0$, $Depo(T^S;T_0^F, T_0,T_1)=1$ and when $t=T_0^F$, $Depo(T_0^F;T
 The first Deposit, denoted with ON (Overnight Deposit), starts today and matures tomorrow; the second Deposit, denoted with TN(Tomorrow-Next Deposit), starts tomorrow and matures 1 day after. The next Deposit, denoted with SN (Spot-Next Deposit) starts at spot date and matures 1 day after.
 
 
-
+-
 #### 2. FRA
 
 ![png](https://scuiaa555.github.io/assets/images/2017-04-15-fra.png)
@@ -131,6 +131,7 @@ In ***Mercurio, Fabio. "LIBOR market models with stochastic basis." (2010),*** i
 
 $$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
 
+-
 #### 3. Futures
 
 ![png](https://scuiaa555.github.io/assets/images/2017-04-15-futures.png)
@@ -161,7 +162,7 @@ $$R_{Fut}^j(t_0;T_0^F,T_0,T_1)-C_{Fut}^j(t_0;T_0)=\frac{1}{\tau(T_0,T_1)}(\frac{
 
 Note that there is a subtle point that the convexity adjustment is from today to $T_1$, not from $T^S$.
 
-
+-
 #### 4. Interest Rate Swaps (IRS)
 
 ![png](https://scuiaa555.github.io/assets/images/2017-04-15-irs.png)
@@ -193,6 +194,7 @@ where
 
 $$A^D(T^S;\textbf{S})=\sum_{j=1}^mP^D(T^S,S_j)\tau(S_{j-1},S_j).$$
 
+-
 #### 5. Overnight Indexed Swaps (OIS)
 
 
@@ -204,6 +206,7 @@ R_{OIS}^j(T^S;\textbf{T},\textbf{S})=\frac{P^D(T^S,T_0)-P^D(T^S,T_n)}{A^D(T^S;\t
 \end{align*}
 $$
 
+-
 ### Bootstrapping OIS curve
 
 
