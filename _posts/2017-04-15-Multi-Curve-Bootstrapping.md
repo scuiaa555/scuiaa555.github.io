@@ -14,13 +14,13 @@ Denote the following dates: <br>
 $t_0$ = today, <br>
 $T^S$ = start date/settlement date of the contract (usually equals to $Spot(t_0)$, say 2 business days for EUR market, except Deposit ON, TN, SN), <br>
 $T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start date of period is also called spot lag, 2 business days for EUR and USD, 0 day for GBP, ref. p.2 of ***Henrard, Marc. "The irony in derivatives discounting part II: The crisis." Wilmott Journal 2.6 (2010): 301-316.***) and <br>
-[$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $\large{T_1=T_0+j}$.
+[$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $T_1=T_0+j$. $\large{T_1=T_0+1d}$
 
 Main references:
 
 * ***Ametrano, Ferdinando M., and Marco Bianchetti. "Everything you always wanted to know about multiple interest rate curve bootstrapping but were afraid to ask." (2013).***
 
-##### Deposits
+##### 1. Deposits
 
 The market quotes at time $t_0$ = today a standard strip of Deposits based on Ibor rates, with fixing date $T_0^F=t_0$, start date $T_0$ = $Spot(t_0)$ and maturity date $T_1=T_0+j$, where $j$ goes from 1d up to 1y.
 
@@ -32,11 +32,12 @@ Depo(t;T_0^F, T_0,T_1)&=P^j(t,T_1)E_t^{Q_{T_1}}[Depo(T_1;T_0^F, T_0,T_1)]\\
 &=P^j(t,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)].
 \end{align*}
 $$
-where $R^j_{Depo}(t_0;T_0^F, T_0,T_1)$ is today's market quote.
+
+where $R^j_{Depo}(t_0;T_0^F, T_0,T_1)$ is today's market quote and $\tau(T_0,T_1)$ should follow the *Business Day Convention, End of Month Convention and Day Count Convention* of the corresponding contract.
 
 Note that the Deposit is not a collateralised contract. Hence we used a discount factor $P^j$ (not $P^D$) based on a rate tenor $j$ consistent with the Deposit rate tenor.
 
-At the settlement date $T^S$, the value of Deposit should equal to notional (=1 in this case), i.e.,
+At the settlement date $T^S=T_0$, the value of Deposit should equal to notional (=1 in this case), i.e.,
 
 $$Depo(T^S;T_0^F, T_0,T_1)=P^j(T^S,T_1)[1+\tau(T_0,T_1)R^j_{Depo}(T_0^F, T_0,T_1)]=1,$$
 
@@ -55,5 +56,13 @@ Depo(t;T_0^F, T_0,T_1)&=P^j(t,T_1)E_t^{Q_{T_1}}[Depo(T_1;T_0^F, T_0,T_1)]\\
 \end{align*}
 $$
 
-When $t=T^S$, $Depo(T^S;T_0^F, T_0,T_1)
+When $t=T^S=T_0$, $Depo(T^S;T_0^F, T_0,T_1)=1$ and when $t=T_0^F$, $Depo(T_0^F;T_0^F, T_0,T_1)=P^j(T_0^F,T_0)\leq 1$.
+
+###### Three Overnight Deposits
+
+The first Deposit, denoted with ON (Overnight Deposit), starts today and matures tomorrow; the second Deposit, denoted with TN(Tomorrow-Next Deposit), starts tomorrow and matures 1 day after. The next Deposit, denoted with SN (Spot-Next Deposit) starts at spot date and matures 1 day after.
+
+
+
+
 
