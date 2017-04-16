@@ -40,7 +40,7 @@ Denote the following dates: <br>
 $t_0$ = today, <br>
 $T^S$ = start date/settlement date of the contract (usually equals to $Spot(t_0)$, say 2 business days for EUR market, except Deposit ON, TN, SN), <br>
 $T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start date of period is also called spot lag, 2 business days for EUR and USD, 0 day for GBP, ref. p.2 of [2]) and <br>
-[$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $T_1=T_0+j$. $\large{T_1=T_0+1d}$
+[$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $T_1=T_0+j$. $\large{T_{n}}$
 
 
 ##### 1. Deposits
@@ -86,6 +86,97 @@ When $t=T^S=T_0$, $Depo(T^S;T_0^F, T_0,T_1)=1$ and when $t=T_0^F$, $Depo(T_0^F;T
 The first Deposit, denoted with ON (Overnight Deposit), starts today and matures tomorrow; the second Deposit, denoted with TN(Tomorrow-Next Deposit), starts tomorrow and matures 1 day after. The next Deposit, denoted with SN (Spot-Next Deposit) starts at spot date and matures 1 day after.
 
 
+
+#### 2. FRA
+
+The standard (textbook) FRA (collateralised) exchanges the floating interest with fixed at time $T_1$, which gives the present value at time $t$, such that $t\leq T_1$,
+
+$$
+\begin{align*}
+FRA_{Std}(t;T_0^F,T_0,T_1)&=P^D(t,T_1)E_t^{Q_{T_1}}[\tau(T_0,T_1)(Ibor(T_0^F;T_0^F,T_0,T_1)-K)]\\
+&=P^D(t,T_1)[\tau(T_0,T_1)\frac{1}{\tau(T_0,T_1)}(\frac{P^j(t,T_0)}{P^j(t,T_1)}-1)-\tau(T_0,T_1)K]\\
+&=P^D(t,T_1)(\frac{P^j(t,T_0)}{P^j(t,T_1)}-1-\tau(T_0,T_1)K).
+\end{align*}
+$$
+
+At the settlement date $T^S$, the value of FRA is zero, which leads to
+
+$$R_{FRA,Std}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1),$$
+
+where $R_{FRA,Std}^j(t_0;T_0^F,T_0,T_1)$ refers to today's market quotes of FRAs.
+
+The market traded FRA, however, pays the floating leg at time $T_0$, so the payoff at time $T_0$ is
+
+$$FRA_{Mkt}(T_0;\textbf{T})=\frac{\tau(T_0,T_1)(Ibor(T^F_0;T_0^F,T_0,T_1)-K)}{1+\tau(T_0,T_1)Ibor(T^F_0;T_0^F,T_0,T_1)}.$$
+
+Since FRA are traded OTC between collateralised counterparties, the present value can be expressed by convexity adjustment,
+
+$$FRA_{Mkt}(t;\text{T})=P^D(t,T_0)[1-\frac{1+K\tau(T_0,T_1)}{1+E_t^{Q_{T_1}}[Ibor(T_0^F;T_0^F,T_0,T_1)]\tau(T_0,T_1)}e^{C_{FRA}^j(t;T_0)}].$$
+
+At the settlement date $T^S$, the value of market traded FRA is zero, which leads to
+
+$$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}\{[1+E_t^{Q_{T_1}}[Ibor(T_0^F;T_0^F,T_0,T_1)]\tau(T_0,T_1)]e^{C_{FRA}^j(t;T_0)}-1\}.$$
+
+In ***Mercurio, Fabio. "LIBOR market models with stochastic basis." (2010),*** it is proved that, for typical post credit market situations, the actual size of the convexity adjustment results to be below 1 bp, even for long maturities. Hence, in practical situation, we can discard the convexity adjustment and use the classical pricing expressions
+
+$$R_{FRA,Mkt}^j(t_0;T_0^F,T_0,T_1)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
+
+#### 3. Futures
+
+The payoff at time $T_0$ (same as market traded FRA) is given as
+
+$$Futures(T_0;\textbf{T})=N[1-Ibor(T_0^F;T_0^F,T_0,T_1)].$$
+
+The present value of Futures is calculated by taking expectation under risk-neutral measure (due to daily settlement mechanism) only,
+
+$$
+\begin{align*}
+Futures(t;\textbf{T})&=E^Q_t(N[1-Ibor(T_0^F;T_0^F,T_0,T_1)])\\
+&=N[1-R_{Fut}^j(t;\textbf{T})],
+\end{align*}
+$$
+
+where 
+
+$$
+R_{Fut}^j(t;\textbf{T})=E_t^{Q_{T_1}}[Ibor(T_0^F;T_0^F,T_0,T_1)]+C_{Fut}^j(t;T_0).
+$$
+
+The convexity adjustment depends on the particular model, and arises because of the daily marking to market and margination mechanism of Futures, which is not negligible. The standard expiry months $T_1$ are March, June, September and December.
+Therefore,
+
+$$R_{Fut}^j(t_0;T_0^F,T_0,T_1)-C_{Fut}^j(t_0;T_0)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
+
+Note that there is a subtle point that the convexity adjustment is from today to $T_1$, not from $T^S$.
+
+
+#### 4. Interest Rate Swaps (IRS)
+
+The fair rate of IRS is
+
+$$
+\begin{align*}
+R_{IRS}^j(t;\textbf{T},\textbf{S})&=\frac{\sum_{i=1}^nP^D(t;T_i)E_t^{Q_{T_i}}[Ibor(T_{i-1}^F;T_{i-1}^F,T_{i-1},T_{i})]\tau(T_{i-1},T_i)}{A^D(t;\textbf{S})}\\
+&=\frac{\sum_{i=1}^nP^D(t;T_i)(\frac{1}{\tau(T_{i-1},T_i)}(\frac{P^j(t,T_{i-1})}{P^j(t,T_i)}-1))\tau(T_{i-1},T_i)}{A^D(t;\textbf{S})}\\
+&=\frac{\sum_{i=1}^nP^D(t;T_i)(\frac{P^j(t,T_{i-1})}{P^j(t,T_i)}-1)}{A^D(t;\textbf{S})}
+\end{align*}
+$$
+
+where $A^D(t;\textbf{S})$ is the risk-free annuity given by
+
+$$A^D(t;\textbf{S})=\sum_{j=1}^mP^D(t,S_j)\tau(S_{j-1},S_j).$$
+
+So at time $T^S$,
+
+$$
+\begin{align*}
+R_{IRS}^j(T^S;\textbf{T},\textbf{S})=\frac{\sum_{i=1}^nP^D(T^S;T_i)(\frac{P^j(T^S,T_{i-1})}{P^j(T^S,T_i)}-1)}{A^D(T^S;\textbf{S})},
+\end{align*}
+$$
+
+where
+
+$$A^D(T^S;\textbf{S})=\sum_{j=1}^mP^D(T^S,S_j)\tau(S_{j-1},S_j).$$
 
 
 
