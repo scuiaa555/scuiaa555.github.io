@@ -159,11 +159,12 @@ R_{Fut}^j(t;\textbf{T})=E_t^{Q_{T_1}}[Ibor(T_0^F;T_0^F,T_0,T_1)]+C_{Fut}^j(t;T_0
 $$
 
 The convexity adjustment depends on the particular model, and arises because of the daily marking to market and margination mechanism of Futures, which is not negligible. The standard expiry months $T_1$ are March, June, September and December.
+
 Therefore,
 
-$$R_{Fut}^j(t_0;T_0^F,T_0,T_1)-C_{Fut}^j(t_0;T_0)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
-
-Note that there is a subtle point that the convexity adjustment is from today to $T_1$, not from $T^S$.
+> $$R_{Fut}^j(t_0;T_0^F,T_0,T_1)-C_{Fut}^j(t_0;T_0)=\frac{1}{\tau(T_0,T_1)}(\frac{P^j(T^S,T_0)}{P^j(T^S,T_1)}-1).$$
+> 
+> Note that there is a subtle point that the convexity adjustment is from today to $T_1$, not from $T^S$.
 
 ---
 #### 4. Interest Rate Swaps (IRS)
@@ -185,29 +186,29 @@ where $A^D(t;\textbf{S})$ is the risk-free annuity given by
 
 $$A^D(t;\textbf{S})=\sum_{j=1}^mP^D(t,S_j)\tau(S_{j-1},S_j).$$
 
-So at time $T^S$,
-
-$$
-\begin{align*}
-R_{IRS}^j(T^S;\textbf{T},\textbf{S})=\frac{\sum_{i=1}^nP^D(T^S;T_i)(\frac{P^j(T^S,T_{i-1})}{P^j(T^S,T_i)}-1)}{A^D(T^S;\textbf{S})},
-\end{align*}
-$$
-
-where
-
-$$A^D(T^S;\textbf{S})=\sum_{j=1}^mP^D(T^S,S_j)\tau(S_{j-1},S_j).$$
+> So at time $T^S$,
+> 
+> $$
+> \begin{align*}
+> R_{IRS}^j(T^S;\textbf{T},\textbf{S})=\frac{\sum_{i=1}^nP^D(T^S;T_i)(\frac{P^j(T^S,T_{i-1})}{P^j(T^S,T_i)}-1)}{A^D(T^S;\textbf{S})},
+> \end{align*}
+> $$
+> 
+> where
+> 
+> $$A^D(T^S;\textbf{S})=\sum_{j=1}^mP^D(T^S,S_j)\tau(S_{j-1},S_j).$$
 
 ---
 #### 5. Overnight Indexed Swaps (OIS)
 
 
-At time $T^S$,
-
-$$
-\begin{align*}
-R_{OIS}^j(T^S;\textbf{T},\textbf{S})=\frac{P^D(T^S,T_0)-P^D(T^S,T_n)}{A^D(T^S;\textbf{S})}.
-\end{align*}
-$$
+> At time $T^S$,
+> 
+> $$
+> \begin{align*}
+> R_{OIS}^j(T^S;\textbf{T},\textbf{S})=\frac{P^D(T^S,T_0)-P^D(T^S,T_n)}{A^D(T^S;\textbf{S})}.
+> \end{align*}
+> $$
 
 ---
 ### Bootstrapping OIS curve
