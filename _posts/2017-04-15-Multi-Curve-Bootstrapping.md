@@ -8,17 +8,40 @@ comments: true
 share: true
 ---
 
+Main references:
+
+* [1]***Ametrano, Ferdinando M., and Marco Bianchetti. "Everything you always wanted to know about multiple interest rate curve bootstrapping but were afraid to ask." (2013).***
+* [2]***Henrard, Marc. "The irony in derivatives discounting part II: The crisis." Wilmott Journal 2.6 (2010): 301-316.***
+
+
+### Multiple Curves
+
+We adopt the definition according to p.3 of [2], i.e.,
+
+&emsp;&emsp;**DEFINITION** 
+
+> The present value of the accrued interest indexed to $Ibor(T^F;T,T+j)$ is
+> 
+> $$
+> \tau(T,T+j)P^D(t,T+j)E_t^{Q_{T+j}}[Ibor(T^F;T,T+j)]\triangleq P^D(t,T+j)(\frac{P^j(t,T)}{P^j(t,T+j)}-1).
+> $$
+> 
+> And the only direct link between $P^j$ and $Ibor$ is valid at fixing date $T^F$, i.e.,
+> 
+> $$
+> Ibor(T^F;T,T+j)=\frac{1}{\tau(T,T+j)}(\frac{P^j(T^F,T)}{P^j(T^F,T+j)}-1).
+> $$
+
+
+
 ### Bootstrapping Instruments (Pillars)
 
 Denote the following dates: <br> 
 $t_0$ = today, <br>
 $T^S$ = start date/settlement date of the contract (usually equals to $Spot(t_0)$, say 2 business days for EUR market, except Deposit ON, TN, SN), <br>
-$T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start date of period is also called spot lag, 2 business days for EUR and USD, 0 day for GBP, ref. p.2 of ***Henrard, Marc. "The irony in derivatives discounting part II: The crisis." Wilmott Journal 2.6 (2010): 301-316.***) and <br>
+$T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start date of period is also called spot lag, 2 business days for EUR and USD, 0 day for GBP, ref. p.2 of [2]) and <br>
 [$T_i,T_{i+1}$] = period of interest accrued. The time interval denoted as $j$ is typically 1d (overnight), 1m, 3m, 6m and 12m, so $T_1=T_0+j$. $\large{T_1=T_0+1d}$
 
-Main references:
-
-* ***Ametrano, Ferdinando M., and Marco Bianchetti. "Everything you always wanted to know about multiple interest rate curve bootstrapping but were afraid to ask." (2013).***
 
 ##### 1. Deposits
 
@@ -61,6 +84,7 @@ When $t=T^S=T_0$, $Depo(T^S;T_0^F, T_0,T_1)=1$ and when $t=T_0^F$, $Depo(T_0^F;T
 ###### Three Overnight Deposits
 
 The first Deposit, denoted with ON (Overnight Deposit), starts today and matures tomorrow; the second Deposit, denoted with TN(Tomorrow-Next Deposit), starts tomorrow and matures 1 day after. The next Deposit, denoted with SN (Spot-Next Deposit) starts at spot date and matures 1 day after.
+
 
 
 
