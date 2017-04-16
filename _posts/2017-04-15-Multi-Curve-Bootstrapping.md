@@ -32,6 +32,9 @@ We adopt the definition according to p.3 of [2], i.e.,
 > Ibor(T^F;T,T+j)=\frac{1}{\tau(T,T+j)}(\frac{P^j(T^F,T)}{P^j(T^F,T+j)}-1).
 > $$
 
+For j=1m,3m,6m,12m, the fixing date $T^F$ usually does not equal start date $T$. However, the fixing date of overnight rate is equal to $T$ by definition of overnight rate, which leads to
+
+$$\frac{1}{P^D(t_0,T)}=E^Q_{t_0}[e^{\int_{t_0}^Tr_{on}(s)ds}].$$
 
 
 ### Bootstrapping Instruments (Pillars)
@@ -44,6 +47,8 @@ $T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start dat
 
 
 ##### 1. Deposits
+
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-deposit.png)
 
 The market quotes at time $t_0$ = today a standard strip of Deposits based on Ibor rates, with fixing date $T_0^F=t_0$, start date $T_0$ = $Spot(t_0)$ and maturity date $T_1=T_0+j$, where $j$ goes from 1d up to 1y.
 
@@ -178,6 +183,16 @@ where
 
 $$A^D(T^S;\textbf{S})=\sum_{j=1}^mP^D(T^S,S_j)\tau(S_{j-1},S_j).$$
 
+#### 5. Overnight Indexed Swaps (OIS)
 
+At time $T^S$,
+
+$$
+\begin{align*}
+R_{OIS}^j(T^S;\textbf{T},\textbf{S})=\frac{P^D(T^S,T_0)-P^D(T^S,T_n)}{A^D(T^S;\textbf{S})},
+\end{align*}
+$$
+
+### Bootstrapping OIS curve 
 
 
