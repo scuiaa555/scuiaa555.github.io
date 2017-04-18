@@ -34,7 +34,7 @@ We adopt the definition according to p.3 of [2], i.e.,
 
 For j=1m,3m,6m,12m, the fixing date $T^F$ usually does not equal start date $T$. However, the fixing date of overnight rate is equal to $T$ by definition of overnight rate, which leads to
 
-$$\frac{1}{P^D(t_0,T)}=E^Q_{t_0}[e^{\int_{t_0}^Tr_{on}(s)ds}].$$
+$$P^D(t_0,T)=E^Q_{t_0}[e^{\int_{t_0}^T-r_{on}(s)ds}].$$
 
 ---
 ### Bootstrapping Instruments (Pillars)
