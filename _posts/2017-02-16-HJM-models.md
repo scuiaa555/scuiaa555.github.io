@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "One-factor Heath–Jarrow–Morton(HJM) model in Multiple Curve Setting"
+title: "One-factor Heath–Jarrow–Morton(HJM) Model in Multiple Curve Setting"
 description: "Here, we listed the model set-up, derivation and use of derivatives pricing in the setting of multiple curves. The pricing methodology includes pricing caplet/floorlet, European swaption, Bermudan swaption, CMS."
 date: 2017-02-16
 tags: [finance, notes]
@@ -37,9 +37,11 @@ The above dynamic shows the arbitrage-free condition between the drift and volat
 #### Zero-coupon Bonds
 
 > In a HJM one factor model, the price of the zero coupon bond can be written as
-
+>
 > $$P(t,T)=\frac{P(0,T)}{P(0,t)}\exp(-\frac{1}{2}\int_0^t(\nu^2(u,T)-\nu^2(u,t))du+\int_0^t(\nu(u,T)-\nu(u,t))dW_u^Q.$$
 
+[Remark 1] If $\sigma(t,T)$ for the instantaneous forward rates is deterministic, then $f(t,T)$ for given T is log-normally distributed, and $r(t)$ is log-normally distributed (as the limit of instantaneous forward rates) and $P(t,T)$ is log-normally distributed under the risk-neutral measure.
+ 
 [Proof.] Based on the dynamic of instantaneous forward rate,
 
 $$f(t,T)=f(0,T)+\int_0^t(\sigma(u,T)\int_u^T\sigma(u,s)ds)du+\int_0^t\sigma(u,T)dW_u^Q.$$ 
@@ -99,6 +101,7 @@ $$
 $$
 
 Combining these two equations gives rise to the result of zero coupon bonds.
+
 
 
 
