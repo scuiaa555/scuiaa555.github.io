@@ -147,6 +147,10 @@ CLT answers the following two questions
   * what is the size of $o(n)$?
   * what is the limiting behaviour of $o(n)$?
 
+> (CLT) Let $X_1,...,X_n$ be i.i.d. with mean $\mu$ and variance $\sigma^2$. Let $S_n=\sum_{i=1}^nX_i=n\bar{X}$. Then 
+> 
+> $$\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}\sim N(0,1).$$
+
 
 
 
