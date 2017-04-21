@@ -25,4 +25,11 @@ $$
 
 Law of $X$: $\mu_X$
 
-The law of random variable $X$ is a probability measure on $(R,\)
+The law of random variable $X$ is a probability measure on $(R,\mathcal{B})$ which is induced by $X$ by
+
+$$\mu_X(B)\triangleq P(X^{-1}(B)).$$
+
+> $(\Omega,\mathcal{F},P)$ is kind of objective (to my point of view), which means that once $P$ is fixed, the distribution that is associated on this probability space is determined. Conversely, if you assume a random follows certain distribution, you already made the assumption that there exists such a probability space (with $P$) that holds this random variable.
+ 
+ 
+ 
