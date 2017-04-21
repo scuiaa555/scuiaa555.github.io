@@ -109,7 +109,7 @@ Definitions
   
 * in dist. convergence/ weak convergence
 
-  $$X_n\rightarrow X\quad \textit{in dist.}  \quad \Longleftrightarrow \quad \textit{One of the followings}$$
+  $$X_n\rightarrow X\quad \textit{in dist.}  \quad \Longleftrightarrow \quad \textit{one of the followings}$$
 
     1. For every continuity point of $F$,
 
@@ -119,6 +119,33 @@ Definitions
 
        $$E(g(X_n))\rightarrow E(g(X)).$$
 
+#### Relations between convergence modes
+
+##### Example
+
+a) in prob. convergence $\nRightarrow$ a.s. convergence
+
+b) a.s. convergence $\nRightarrow$ $L_p$ convergence
+
+c) $L_p$ convergence $\nRightarrow$ a.s. convergence
+
+
+### Law of Large Numbers (LLN)
+
+> (Strong law of large numbers (SLLN)) Let $X_1,...,X_n$ be i.i.d. with mean $\mu$. Let $S_n=\sum_{i=1}^nX_i$. Then
+> 
+> $$\frac{S_n}{n}\rightarrow \mu \quad a.s.$$
+
+
+### Central Limit Theorem (CLT)
+
+LNN only captures the deterministic part of $S_n$. It does not tell us the randomness of $S_n$. More precisely, 
+    $$S_n=n\mu+o(n).$$
+    
+CLT answers the following two questions
+  
+    * what is the size of $o(n)$?
+    * what is the limiting behaviour of $o(n)?
 
 
 
