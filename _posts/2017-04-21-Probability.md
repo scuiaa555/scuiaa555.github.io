@@ -8,7 +8,7 @@ comments: true
 share: true
 ---
 
-### Basic notions
+### Basic Notions
 
 Probability space
 
@@ -60,7 +60,7 @@ $$
 > $$\forall A\in \mathcal{F}, \quad Q(A)=E^Q[1_A]=\int_AdQ=\int_A \Lambda dP=E^P[\Lambda 1_A].$$
 > 
 
-$\Lambda$ is called *Radon-Nikodym derivative*, since
+$\Lambda$ is called *Radon-Nikodym derivative*, denoted as $\Lambda=\frac{dQ}{dP}$ since
 
 $$E^Q[X]=\int_{\Omega}XdQ=\int_{\Omega}X\frac{dQ}{dP}dP=\int_{\Omega}X\Lambda dP=E^P[X\Lambda].$$
  
@@ -86,8 +86,40 @@ $$\Lambda=\frac{1}{\sigma}e^{-\frac{(X-\mu)^2}{2\sigma^2}+\frac{X^2}{2}},$$
 
 which is a $\mathcal{F}$-measurable random variable.
 
+In addition, the new measure is defined as
 
-### Various types of convergence
+$$Q(A)=\int_A\Lambda dP.$$
+
+
+### Various Types of Convergence
+
+Definitions
+
+* a.s. convergence
+
+  $$X_n\rightarrow X\quad a.s. \quad \Longleftrightarrow \quad P(\lim_{n\rightarrow \infty}X_n=X)=1.$$
+  
+* in prob. convergence
+
+  $$ X_n\rightarrow X\quad \textit{in prob.} \quad \Longleftrightarrow \quad \forall \epsilon>0, \quad P(|X_n-X|>\epsilon)\rightarrow 0 \quad as \quad n\rightarrow \infty.$$
+  
+* $L_p$ convergence
+
+  $$X_n\rightarrow X\quad \textit{in } L_p \quad \Longleftrightarrow \quad E(|X_n|^p)\rightarrow E(|X|^p).$$
+  
+* in dist. convergence/ weak convergence
+
+  $$X_n\rightarrow X\quad \textit{in dist.}  \quad \Longleftrightarrow \quad \textit{One of the followings}$$
+
+    1. For every continuity point of $F$,
+
+       $$F_n(t)\rightarrow F(t).$$
+       
+    2. For every continuous bounded function $g(\cdot)$,
+
+       $$E(g(X_n))\rightarrow E(g(X)).$$
+
+
 
 
 
