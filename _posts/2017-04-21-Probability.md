@@ -143,9 +143,9 @@ LNN only captures the deterministic part of $S_n$. It does not tell us the rando
     $$S_n=n\mu+o(n).$$
     
 CLT answers the following two questions
-  
-    * what is the size of $o(n)$?
-    * what is the limiting behaviour of $o(n)?
+
+  * what is the size of $o(n)$?
+  * what is the limiting behaviour of $o(n)$?
 
 
 
