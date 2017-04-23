@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Probability"
-description: "A brief summary on probability theory which includes basic probability inequalities, various types of convergence, law of large numbers, central limit theory, large deviation, martingales. The proof of theorems is omitted, while the real examples and applications are highlighted."
+description: "A brief summary on probability theory which includes basic probability inequalities, various types of convergence, law of large numbers, central limit theory, concentration law, martingales. The proof of theorems is omitted, while the real examples and applications are highlighted."
 date: 2017-04-21
 tags: [math, notes]
 comments: true
