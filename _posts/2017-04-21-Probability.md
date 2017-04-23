@@ -139,6 +139,8 @@ c) $L_p$ convergence $\nRightarrow$ a.s. convergence
 
 ### Central Limit Theorem (CLT)
 
+#### CLT for random variable
+
 LNN only captures the deterministic part of $S_n$. It does not tell us the randomness of $S_n$. More precisely, 
     $$S_n=n\mu+o(n).$$
     
@@ -151,6 +153,47 @@ CLT answers the following two questions
 > 
 > $$\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}\sim N(0,1).$$
 
+One of the most important method to prove CLT is Fourier transform method (also called characteristic method). The idea is roughly to replace the bounded continuous function in the definition of weak convergence and plus additional conditions, which follows by Levy's continuity theorem:
 
+> (Levy's continuity theorem) If $\phi_{X_n}(t)\rightarrow \phi(t)$ point-wise for some function $\phi(t)$ *continuous at 0*, then $X_n$ converges weakly to some r.v. $X$ with characteristic function $\phi(t)$.
 
+[Remark] The continuity of $phi(t)$ at 0 guarantees that $\phi(t)$ is indeed a characteristic function of some $X$.
 
+##### Example
+
+Assume $Z\sim N(0,1)$, $X_n=nZ$, then $X_n$ does not converge to a r.v..
+Since,
+ 
+$$\phi_{X_n}(t)=E(e^{itX_n})=e^{-\frac{1}{2}n^2t^2}=1_{t=0},$$
+
+is not continuous at $0$.
+
+Another example of CLT which applies to independent r.v.s (identically distributed is not required) is *Lindeberg-Feller CLT*.
+
+> (Lindeberg-Feller CLT) Suppose $X_1,...,X_n$ are independent r.v.s with mean $\mu$ and variance $\sigma_n^2$. Let $s_n^2=\sum_{j=1}^n\sigma_j^2$ denote the variance of partial sum $S_n=X_1+...X_n$. If for every $\epsilon>0$, 
+> 
+> $$\frac{1}{s_n^2}\sum_{j=1}^nE(X_j^21_{\{|X_j|>\epsilon s_n\}})\rightarrow 0,\quad (\#1)$$
+> 
+> then
+> 
+> $$\frac{S_n}{s_n}\rightarrow N(0,1).$$ 
+> 
+> Conversely, if
+> 
+> $$\max_{j\leq n}\sigma_j^2/s_n^2 \rightarrow 0\quad and \quad S_n/s_n\rightarrow N(0,1),$$
+> 
+> then (#1) holds.
+
+#### CLT for quadratic form
+
+> Let $\textbf{X}$=$(X_1,...,X_n)^'$ be a random vector with i.i.d. components. Suppose that $E(X_1)=0$, $E(X_1^2)=1$, $E(X_1^4)=\theta <\infty.$ Let $A=(a_ij)_{n,n}$ be an $n\times n$ Hermitian matrix, with bounded operator norm (largest absolute value of eigenvalue), i.e., $\|A\|\leq K,$ such that the following limits exist
+> 
+> $$\textit{(diagonal)}\quad \lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i=1}^n a_{ii}=\alpha,\quad \lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i,j=1}^{n}a_{ij}^2=\beta.$$
+> 
+> Then 
+> 
+> $$
+> \frac{\textbf{X}'A\textbf{X}-tr A}{\sqrt{n}}\rightarrow N(0,S^2),
+> $$
+> 
+> where $S^2=(\theta-3)\alpha+2\beta$.

@@ -48,8 +48,7 @@ $T_i^F$ = fixing date of the ith Ibor (the lag between fixing date and start dat
 
 #### 1. Deposits
 
-![png](https://scuiaa555.github.io/assets/images/2017-04-15-deposit.png)
-{:height="50px" width="200px"}
+![png](https://scuiaa555.github.io/assets/images/2017-04-15-deposit.png){:height="50px" width="200px"}
 
 The market quotes at time $t_0$ = today a standard strip of Deposits based on Ibor rates, with fixing date $T_0^F=t_0$, start date $T_0$ = $Spot(t_0)$ and maturity date $T_1=T_0+j$, where $j$ goes from 1d up to 1y.
 
