@@ -317,3 +317,14 @@ since each ball cannot change the number of empty bins by 1. In addition, $Ef=n\
 
 $$P(|\mathcal{X}(G(n,p))-E\mathcal{X}(G(n,p))|\geq t)\leq 2\exp(-\frac{t^2}{2n}).$$
 
+Let $X_i$ be the randomness in the set of possible edges between $v_i$ and $v_1,...,v_{i-1}.$ More specifically, $X_i=(X_1^i,...,X_{i-1}^i)$, where $X_k^i$ is $1$ if there is an edge between $v_i$ and $v_k$, $0$ otherwise. Let $f=\mathcal{X}(G(n,p))=f(X_1,...,X_n),$ which satisfies
+
+$$|f(X_1,...,X_i,...,X_n)-f(X_1,...,X_i',...,X_n)|\leq 1,$$
+
+since at most we use an additional color to accommodate the changes corresponding to one vertex. In addition, it is known (non-trivial) that 
+
+$$E\mathcal{X}(G(n,p))=\frac{-\log (1-p)}{2}\cdot \frac{n}{\log n}.$$
+
+[Remark 1] To calculate the chromatic number of a general graph is a NP hard problem.
+
+[Remark 2] Here $X_i$ are random vectors and are not of the same dimension.
