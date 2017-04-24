@@ -328,3 +328,21 @@ $$E\mathcal{X}(G(n,p))=\frac{-\log (1-p)}{2}\cdot \frac{n}{\log n}.$$
 [Remark 1] To calculate the chromatic number of a general graph is a NP hard problem.
 
 [Remark 2] Here $X_i$ are random vectors and are not of the same dimension.
+
+
+#### Gaussian concentration inequality
+
+The above inequalities suffer from their limitations of boundedness requirements that even cannot even be applied to Gaussian r.v.s.
+
+> Let $X=(X_1,...,X_n)$ be a random vector with i.i.d $N(0,\sigma^2)$ components. Let $f:R^n\rightarrow R$ be a function which is Lipschitz with constant $|F|_L$, i.e.,
+> 
+> $$|f(X)-f(Y)|\leq |F|_L\|X-Y\|_2 \quad \forall X,Y\in R^n.$$
+> 
+> Then,
+> 
+> $$P(|f(X)-Ef(X)|\geq t)\leq C\exp(-\frac{ct^2}{\sigma^2|F|_L^2}),\quad t\geq 0.$$
+
+The example functions that satisfies Lipschitz condition are $f(X)=\sum X_i$, $f(X)=\max X_i$, $f(X)=\|X\|_2$, $f(X)=\ln(e^{X_1}+...+e^{X_n})$.
+
+The smaller variance $\sigma$ is and the smaller the Lipschitz constant $|F|_L$ is, the sharper the inequality is.
+
