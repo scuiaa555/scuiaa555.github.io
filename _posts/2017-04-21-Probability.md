@@ -186,9 +186,9 @@ Another example of CLT which applies to independent r.v.s (identically distribut
 
 #### CLT for quadratic form
 
-> Let $\textbf{X}$=$(X_1,...,X_n)^'$ be a random vector with i.i.d. components. Suppose that $E(X_1)=0$, $E(X_1^2)=1$, $E(X_1^4)=\theta <\infty.$ Let $A=(a_ij)_{n,n}$ be an $n\times n$ Hermitian matrix, with bounded operator norm (largest absolute value of eigenvalue), i.e., $\|A\|\leq K,$ such that the following limits exist
+> Let $\textbf{X}$=$(X_1,...,X_n)^'$ be a random vector with i.i.d. components. Suppose that $E(X_1)=0$, $E(X_1^2)=1$, $E(X_1^4)=\theta <\infty.$ Let $A=(a_ij)_{n,n}$ be an $n\times n$ Hermitian matrix, with bounded operator norm (largest absolute value of eigenvalue), i.e., $\|A\|_{op}\leq K,$ such that the following limits exist
 > 
-> $$\textit{(diagonal)}\quad \lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i=1}^n a_{ii}=\alpha,\quad \lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i,j=1}^{n}a_{ij}^2=\beta.$$
+> $$\lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i=1}^n a_{ii}=\alpha\quad \textit{(diagonal)},\quad \lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i,j=1}^{n}a_{ij}^2=\beta.$$
 > 
 > Then 
 > 
@@ -197,3 +197,34 @@ Another example of CLT which applies to independent r.v.s (identically distribut
 > $$
 > 
 > where $S^2=(\theta-3)\alpha+2\beta$.
+
+
+### Concentration Law
+
+* LLN: leading deterministic part of partial sum $S_n$;
+* CLT: fluctuation of $S_n$;
+* LLN+CLT: typical behaviour of $S_n$;
+* Concentration law: *atypical* behaviour of $S_n$, which studies
+
+$$P(\frac{S_n}{n}\geq t)\leq Ce^{-cnt^2}.$$
+
+More general form takes as
+
+$$P(|f(X_1,...,X_n)-Ef(X_1,...,X_n)|\geq t)\leq e^{-h(n,t)},$$
+
+where the order of $h$ w.r.t. n is crucial.
+
+If we rewrite CLT as
+
+$$P(\frac{S_n}{n}-\mu\geq \frac{t}{\sqrt{n}})=P(N(0,1)\geq t)+o(1),$$
+
+which is equivalent to
+
+$$P(\frac{S_n}{n}-\mu\geq x)=P(N(0,1)\geq \sqrt{n}x)+o(1).$$
+
+From above, no matter how large we increase $x$, there is always $o(1)$ term on the RHS, so we cannot get some bound that better than $o(1)$ by CLT. For this reason, the concentration law is trying to improve the estimation of $P(\frac{S_n}{n}\geq x)$ when $x$ is large.
+
+##### Example
+
+(Cramer's actuarial problem) Suppose $n$ clients have each paid a premium of $c$ dollars for life insurance over a period of time. 
+
