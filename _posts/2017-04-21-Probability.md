@@ -6,6 +6,8 @@ date: 2017-04-21
 tags: [math, notes]
 comments: true
 share: true
+redirect_to:
+  - http://www.github.com
 ---
 
 ### Basic Notions
