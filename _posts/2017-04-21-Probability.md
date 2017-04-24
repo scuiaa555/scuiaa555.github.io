@@ -226,7 +226,94 @@ $$P(\frac{S_n}{n}-\mu\geq x)=P(N(0,1)\geq \sqrt{n}x)+o(1).$$
 
 From above, no matter how large we increase $x$, there is always $o(1)$ term on the RHS, so we cannot get some bound that better than $o(1)$ by CLT. For this reason, the concentration law is trying to improve the estimation of $P(\frac{S_n}{n}\geq x)$ when $x$ is large.
 
-##### Example
+##### Example 1
 
-(Cramer's actuarial problem) Suppose $n$ clients have each paid a premium of $c$ dollars for life insurance over a period of time. 
+(Cramer's actuarial problem) Suppose $n$ clients have each paid a premium of $c$ dollars for life insurance over a period of time. Assume the claims are i.i.d. nonnegative bounded r.v.s $X_1,...,X_n$. Suppose the total premium of the insurance company is $cn$. Let $EX_1=\mu$. The chance that the insurance company bankcrupt is
+
+$$P(\sum_{i=1}^nX_i\geq cn)\leq e^{-nI( c )}\quad if \quad c>\mu,$$
+
+where $I( c )\sim (c-\mu)^2.$
+
+##### Example 2
+
+(Borel's geometric concentration) Let $\mu^n$ be the uniform measure on the $n$-dimensional cube $\Omega=[-1,1]^n$. Let $H$ be a hyperplane that is orthogonal to a principle diagonal of $[-1,1]^n$, i.e.,
+
+$$H=(1,...,1)^\perp,$$
+
+where $\perp$ stands for orthogonal complement and dimension of $H$ is $n-1$.
+
+Let 
+
+$$H_r=\{x\in [-1,1]^n:\textit{dist}(x,H)\leq r\}.$$
+
+Then
+
+$$\mu^n(H_{\epsilon\sqrt{n}}^c)=1-\mu^n(H_{\epsilon\sqrt{n}})\leq Ce^{-c\epsilon^2n}.$$
+
+[Remark 1] If $n$ is large, the probability that locates in this small region is very high, that is why this kind of inequality is called concentration.
+
+[Remark 2] Let $X_1,...,X_n$ be i.i.d. uniformly distributed on $[-1,1]$. We have
+
+$$\textit{dist}(X,H)=\frac{<X,(1,...,1)>}{\|(1,...,1)\|_2}=\frac{\sum X_i}{\sqrt{n}}.$$
+
+Hence,
+
+$$\mu^n(H_{\epsilon\sqrt{n}}^c)=P(|\frac{S_n}{n}>\epsilon|),$$
+
+which is a concentration law.
+
+#### Concentration law for Rademacher r.v.
+
+> (Hoeffding's inequality) Let {$X_i$} be a sequence of i.i.d. Rademacher r.v., i.e., $P(X_i=1)=P(X_i=-1)=\frac{1}{2}$ (Note that Bernoulli r.v. is $P(X_i=1)=P(X_i=0)=\frac{1}{2}$). Then for any given $a_1,...,a_n\in R$ and $t\geq 0$
+> 
+> $$P(\sum_{i=1}^nx_ia_i\geq t)\leq \exp(-\frac{t^2}{2\sum_{i=1}^n a_i^2}).$$
+
+
+#### Concentration law for bounded r.v.
+
+> (Hoeffding-Chernoff's inequality) Let {$X_i$} be independent bounded r.v.s $X_i\in[a_i,b_i]$. Then
+> 
+> $$
+> P(\bar{X}-E\bar{X}\geq t)\leq \exp(-\frac{2n^2t^2}{\sum_{i=1}^n(b_i-a_i)^2}).
+> $$
+
+Hoeffding-Chernoff's inequality does not use the variance information of $X_i$, while Bennett's inequality takes that into consideration, which gives better bound in most cases.
+
+> (Bennett's inequality) Let $X_i$ be i.i.d with mean $\mu$ and variance $\sigma^2$ and bounded $|X_i-\mu|\leq M$. Then
+> 
+> $$P(\frac{S_n}{n}-\mu\geq t)\leq \exp(-\frac{n\sigma^2}{M}\phi(\frac{tM}{\sigma^2}))\quad \forall t\geq 0,$$
+> 
+> where
+> 
+> $$\phi(x)=(1+x)\log(1+x)-x.$$
+
+
+#### Concentration law for r.v. with "bounded-like" condition
+
+> (Azuma's inequality) Let $X_1,..,X_n$ be $n$ independent r.v.s(they are not necessarily of dimension rather than 1 and their dimensions are not necessarily equal). Let $f$ be a function which satisfies
+> 
+> $$|f(X_1,...,X_i,...,X_n)-f(X_,1...,X_i',...,X_n)| \leq a_i$$
+> 
+> for some constants $a_1,...,a_n$. Then
+> 
+> $$P(f-Ef)\geq t)\leq \exp(-\frac{t^2}{2\sum_{i=1}^n a_i}).$$
+
+
+[Remark] If $f=\sum_{i=1}^nX_i$, then the condition of $f$ reduces to bounded condition and Azuma's inequality reduces to Hoeffding-Chernoff's inequality.
+
+
+##### Example 1
+
+(Balls and bins) There are $m$ balls and $n$ bins. We randomly throw each ball into a bin. Let $X_i$ be the bin selected by $i$-th ball and $f=f(X_1,...,X_n)$ be the number of empty bins. Then
+
+$$P(|f-Ef|\geq t)\leq 2\exp(-\frac{t^2}{2m}),$$
+
+since each ball cannot change the number of empty bins by 1. In addition, $Ef=n\cdot (\frac{n-1}{n})^m$ which could be proved by method of indicator functions.
+
+
+##### Example 2
+
+(Chromatic number of random graph) Let $G(n,p)$ be an Erdos-Renyi graph, i.e., there are $n$ vertices $v_1,...,v_n$. Each possible edge $(v_i,v_j)$ is included in the graph with probability $p$, independent from all the other edges. Let $f=\mathcal{X}(G(n,p))$ be the chromatic number, which is the smallest number of colors needed to color the vertices so that NO two adjacent vertices share the same color. Then
+
+$$P(|\mathcal{X}(G(n,p))-E\mathcal{X}(G(n,p))|\geq t)\leq 2\exp(-\frac{t^2}{2n}).$$
 
