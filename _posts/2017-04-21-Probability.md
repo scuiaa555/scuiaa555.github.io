@@ -329,6 +329,19 @@ $$E\mathcal{X}(G(n,p))=\frac{-\log (1-p)}{2}\cdot \frac{n}{\log n}.$$
 
 [Remark 2] Here $X_i$ are random vectors and are not of the same dimension.
 
+##### Example 3
+
+(Max-cut for random graph) Let $G=\{V,E\}$ be a generic graph, where $V=\{1,...,n\}$. A cut of the graph $G$ is a map $\sigma:V\rightarrow \{0,1\}^n.$ Let $MC(\sigma)=\#\{(i,j)\in E:\sigma(i)\neq \sigma(j)\}.$ We want to investigate  the maximum value of $MC(\sigma)$ over all possible cut:
+
+$$X=\max_{\sigma}MC(\sigma).$$
+
+Now, we choose $G$ to be an Erdos-Renyi graph $G(n,\frac{1}{2})$. A concentration law of $X$ will follow by Azuma's.
+
+
+##### Example 4
+
+(Random interval packing) Let $I_i, i=1,...,n$ i.i.d subintervals of $[0,1]$, where the endpoints of $I_i$ are chosen from $[0,1]$ uniformly. A packing of $[0,1]$ is a subset of $\{I_1,...,I_n\}$, such that all intervals in this subset are pairwise disjoint. Let $X$ be the maximum cardinality over all packings, i.e., the cardinality of the packing with the largest size. A concentration law of $X$ will follow by Azuma's.
+
 
 #### Gaussian concentration inequality
 
