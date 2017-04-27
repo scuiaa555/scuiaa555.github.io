@@ -359,3 +359,15 @@ The example functions that satisfies Lipschitz condition are $f(X)=\sum X_i$, $f
 
 The smaller variance $\sigma$ is and the smaller the Lipschitz constant $|F|_L$ is, the sharper the inequality is.
 
+
+#### Beyond Gaussian (concentration law for sub-Gaussian and sub-exponential)
+
+Recall some properties for a standard Gaussian distribution $X\sim N(0,1)$
+
+1. (Tails)
+
+    $$P(|X|>t)\leq 2e^{-\frac{t^2}{2}},\quad \textit{(Consentration)}$$
+    
+2. (Moments)
+
+    $$(E$$
