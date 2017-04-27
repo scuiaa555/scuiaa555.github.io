@@ -378,4 +378,130 @@ Recall some properties for a standard Gaussian distribution $X\sim N(0,1)$
 
     $$E\exp(tX)=e^{\frac{t^2}{2}},\quad t\in R.$$
     
-The above three can 
+The above three can all depict the tail of $X$ 
+
+* a super-exponential tail decay
+* the moment growth
+* the growth of the moment generating function.
+
+The following lemma shows that we can use any of the above properties to define sub-Gaussian.
+
+> (Lemma) Let $X$ be a r.v. with mean existing but not necessarily being equal to zero. The followings are equivalent with $K_i>0$ differing from each other by a constant factor.
+> 
+> 1. (Tails)
+> 
+>     $$P(|X|>t)\leq \exp(1-\frac{t^2}{K_1^2}),\quad \forall t\geq 0;$$
+> 
+> 2. (Momemnts)
+> 
+>     $$(E|X|^p)^{1/p}\leq K_2\sqrt{p}, \quad \forall p\geq 1;$$
+> 
+> 3. （Super-exponential moment）
+> 
+>     $$E\exp(\frac{X^2}{K_3^2})\leq e;$$
+> 
+>     Moreover, if $EX=0$, (1-3) are equivalent to
+> 
+> 4. (Momemnt generating function)
+> 
+>     $$E\exp(tX)\leq \exp(t^2K_4^2), \quad \forall t\in R.$$
+
+
+Therefore, we have the definition for sub-Gaussian, i.e,
+
+> (sub-Gaussian) We say $X$ is sub-Gaussian if it satisfies one of 1-3 in the above lemma or 4 when $EX=0$.
+
+
+> (sub-Gaussian norm $\|X\|_{\psi_2}$)
+> 
+> The sub-Gaussian norm $\|X\|_{\psi_2})$ is defined as the smallest $K_2$ in property 2 in the lemma, i.e.,
+> 
+> $$\|X\|_{\psi_2}=\sup_{p\geq 1} p^{-1/2}(E|X|^p)^{1/p}.$$
+
+
+##### Examples of sub-Gaussian
+
+* (Gaussian) $X\sim N(0,\sigma^2)$:
+    
+    $$\|X\|_{\psi_2}\leq C\sigma.$$
+    
+* (Bounded r.v.) $|X|\leq M$:
+    
+    $$\|X\|_{\psi_2}\leq M.$$
+    
+An important property of sub-Gaussian is rotation invariance property, i.e.,
+
+> (Rotation invariance property) If $X_1,...,X_n$ are independent centered sub-Gaussian, then $\sum_{i=1}^n X_i$ is also a centered sub-Gaussian r.v.. Moreover,
+> 
+> $$\|\sum_{i=1}^nX_i\|^2_{\psi_2}\leq C\sum_{i=1}^n\|X_i\|^2_{\psi_2}.$$
+
+
+Conservation law for sub-Gaussian
+> (Hoeffding inequality) Let $X_1,...,X_n$ be independent centered sub-Gaussian r.v.s. Then for every $a=(a_1,...,a_n)\in R^n$, every $t\geq 0$,
+> 
+> $$P(|\sum_{i=1}^n a_iX_i|\geq t)\leq \exp(1-\frac{ct^2}{\max_{i} \|X_i\|^2_{\psi_2}\|a\|_2^2}).$$
+
+
+There are some other useful r.v.s whose tails are fatter than Gaussian, analogously to sub-Gaussian, we consider sub-exponential r.v.s.
+
+> (sub-exponential) We say X is sub-exponential if it satisfies one of 1-3 in the following:
+> 
+> 1. (Tails)
+> 
+>     $$P(|X|>t)\leq \exp(1-\frac{t}{K_1^2}),\quad \forall t\geq 0;$$
+> 
+> 2. (Moments)
+> 
+>     $$(E|X|^p)^{1/p}\leq K_2p, \quad \forall p\geq 1;$$
+> 
+> 3. (Exponential moment)
+> 
+>     $$E\exp(\frac{X}{K_3}\leq e.$$
+> 
+
+> (sub-exponential norm, $\|X\|_{\psi_1}$)
+> 
+> The sub-exponential norm $\|X\|_{\psi_1}$ is defined as the smallest $K_2$ in property 2, i.e.,
+> 
+> $$\|X\|_{\psi_1}=\sup_{p\geq 1}p^{-1}(E|X|^p)^{1/p}.$$
+
+
+A r.v. $X$ is sub-Gaussian if and only if $X^2$ is sub-exponential.
+
+Conservation law for sub-exponential
+
+> Let $X_1,...,X_n$ be independent mean zero sub-exponential r.v.s. Let $K=\max_{i}\|X_i\|_{\psi_1}$. Then for every $a=(a_1,...,a_n)\in R^n$ and every $t\geq 0$,
+> 
+> $$P(|\sum_{i=1}^na_iX_i|\geq t)\leq 2\exp(-c\min(\frac{t^2}{K^2\|a\|_2^2},\frac{t}{K\|a\|_{\infty}})].$$
+
+[Remark] The first term in $\min$ indicates that for $t$ which is not very large, the probability is still bounded by Gaussian bound.
+
+We can further generalise Gaussian concentration to some other distributions, which may even have some dependence between components. *Logatirhmic Sobolev inequality*(LSI) is a criterion of a particular class of probability measure on $R^d$. Once the joint distribution of $X_1,...,X_d$ satisfies this inequality, Gaussian type of concentration will follow. Although LSI is not easy to check, a practical sufficient condition which is called *Bakry-Emery criterion* is developed.
+
+> (LSI) We say that $\mu$ satisfies LSI with constant $c$, if for all differentiable function $F:R^n\rightarrow R$ there is
+> 
+> $$\int(F^2\log\frac{F^2}{\int F^2d\mu})d\mu\leq 2c\int\|\nabla F\|_2^2d\mu.$$
+
+In one sentence, LSI implies sub-Gaussian tail.
+
+> (Herbst lemma) Let $X=(X_1,...,X_n)$ be a random vector with distribution $\mu$. Assume that $\mu$ satisfies LSI with constant $c$. Then for any Lipschitz function $f:R^n\rightarrow R$ with Lipschitz constant L, we have
+> 
+> $$P(|f(X)-Ef(X)|\geq t)\leq 2\exp(-\frac{t^2}{2cL}).$$
+
+
+Now we provide a criterion on a measure $\mu$ on $R^n$ to guarantee LSI. The following is actually a consequence of the so-called Bakry-Emery criterion.
+
+> Suppose the measure $\mu$ has density function 
+> 
+> $$\mu(dx)=Z^{-1}e^{-V(x)}dx,$$
+> 
+> where $Z=\int e^{-V(x)}dx$ is the normalization constant, and
+> 
+> $$V:R^n\rightarrow R\cup \infty $$
+> 
+> satisfies
+> 
+> $$V(x)-\frac{\|x\|_2^2}{2C}$$
+> 
+> is a convex function for some positive constant $C$. Then the measure $\mu$ satisfies LSI with constance $C$.
+
