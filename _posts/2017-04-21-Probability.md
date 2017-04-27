@@ -189,7 +189,7 @@ Another example of CLT which applies to independent r.v.s (identically distribut
 
 #### CLT for quadratic form
 
-> Let $\textbf{X}$=$(X_1,...,X_n)^'$ be a random vector with i.i.d. components. Suppose that $E(X_1)=0$, $E(X_1^2)=1$, $E(X_1^4)=\theta <\infty.$ Let $A=(a_ij)_{n,n}$ be an $n\times n$ Hermitian matrix, with bounded operator norm (largest absolute value of eigenvalue), i.e., $\|A\|_{op}\leq K,$ such that the following limits exist
+> Let $\textbf{X}$=$(X_1,...,X_n)'$ be a random vector with i.i.d. components. Suppose that $E(X_1)=0$, $E(X_1^2)=1$, $E(X_1^4)=\theta <\infty.$ Let $A=(a_ij)_{n,n}$ be an $n\times n$ Hermitian matrix, with bounded operator norm (largest absolute value of eigenvalue), i.e., $\|A\|_{op}\leq K,$ such that the following limits exist
 > 
 > $$\lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i=1}^n a_{ii}=\alpha\quad \textit{(diagonal)},\quad \lim_{n\rightarrow \infty}\frac{1}{n}\sum_{i,j=1}^{n}a_{ij}^2=\beta.$$
 > 
