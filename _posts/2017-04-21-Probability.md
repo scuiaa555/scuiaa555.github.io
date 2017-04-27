@@ -6,11 +6,12 @@ date: 2017-04-21
 tags: [math, notes]
 comments: true
 share: true
+redirect_to:
+  - http://www.github.com
 
 ---
 
-redirect_to:
-  - http://www.github.com
+
 ### Basic Notions
 
 Probability space
@@ -371,4 +372,10 @@ Recall some properties for a standard Gaussian distribution $X\sim N(0,1)$
     
 2. (Moments)
 
-    $$(E$$
+    $$(E|X|^p)^{1/p}=O(\sqrt{p}),\quad p\geq 1,$$
+    
+3. (Moment generating function)
+
+    $$E\exp(tX)=e^{\frac{t^2}{2}},\quad t\in R.$$
+    
+The above three can 
