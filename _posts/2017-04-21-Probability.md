@@ -10,7 +10,7 @@ share: true
 ---
 
 redirect_to:
-  - http://www.github.coms
+  - http://www.github.com
 ### Basic Notions
 
 Probability space
@@ -332,7 +332,7 @@ $$E\mathcal{X}(G(n,p))=\frac{-\log (1-p)}{2}\cdot \frac{n}{\log n}.$$
 
 ##### Example 3
 
-(Max-cut for random graph) Let $G=\{V,E\}$ be a generic graph, where $V=\{1,...,n\}$. A cut of the graph $G$ is a map $\sigma:V\rightarrow \{0,1\}^n.$ Let $MC(\sigma)=\#\{(i,j)\in E:\sigma(i)\neq \sigma(j)\}.$ We want to investigate  the maximum value of $MC(\sigma)$ over all possible cut:
+(Max-cut for random graph) Let $G=\{V,E\}$ be a generic graph, where $V=\{1,...,n\}$. A cut of the graph $G$ is a map $\sigma:V\rightarrow \{0,1\}^n.$ Let $MC(\sigma)=\textit{num}\{(i,j)\in E:\sigma(i)\neq \sigma(j)\}.$ We want to investigate  the maximum value of $MC(\sigma)$ over all possible cut:
 
 $$X=\max_{\sigma}MC(\sigma).$$
 
@@ -348,7 +348,7 @@ Now, we choose $G$ to be an Erdos-Renyi graph $G(n,\frac{1}{2})$. A concentratio
 
 The above inequalities suffer from their limitations of boundedness requirements that even cannot even be applied to Gaussian r.v.s.
 
-> Let $X=(X_1,...,X_n)$ be a random vector with i.i.d $N(0,\sigma^2)$ components. Let $f:R^n\rightarrow R$ be a function which is Lipschitz with constant $|F|_L$, i.e.,
+> Let $X=(X_1,...,X_n)$ be a random vector with i.i.d $N(0,\sigma^2)$ components. Let $f:R^n\rightarrow R$ be a function which is Lipschitz with constant $| F |_L$, i.e.,
 > 
 > $$|f(X)-f(Y)|\leq |F|_L\|X-Y\|_2 \quad \forall X,Y\in R^n.$$
 > 
@@ -358,7 +358,7 @@ The above inequalities suffer from their limitations of boundedness requirements
 
 The example functions that satisfies Lipschitz condition are $f(X)=\sum X_i$, $f(X)=\max X_i$, $f(X)=\|X\|_2$, $f(X)=\ln(e^{X_1}+...+e^{X_n})$.
 
-The smaller variance $\sigma$ is and the smaller the Lipschitz constant $|F|_L$ is, the sharper the inequality is.
+The smaller variance $\sigma$ is and the smaller the Lipschitz constant $| F |_L$ is, the sharper the inequality is.
 
 
 #### Beyond Gaussian (concentration law for sub-Gaussian and sub-exponential)
