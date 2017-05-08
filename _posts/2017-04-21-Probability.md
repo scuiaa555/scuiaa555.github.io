@@ -547,3 +547,62 @@ Now we provide a criterion on a measure $\mu$ on $R^n$ to guarantee LSI. The fol
 
 ### Conditional Expectation
 
+#### Classical definitions
+
+w.r.t. an event
+
+$$E(X|A)=\frac{E1_A X}{P(A)}=\frac{\int_A X(\omega)P(d\omega)}{P(A)}=\frac{\int_B xdF(x)}{P(A)},$$
+
+where $B=X(A)$.
+
+$$P(B|A)=E(1_B|A)=\frac{\int_A 1_B(\omega)P(d\omega)}{P(A)}=\frac{P(A\cap B)}{P(A)}.$$
+
+w.r.t. a random variable
+
+$$E(X|Y=y)=\lim_{\epsilon \rightarrow 0} E(X|A^{\epsilon}),$$
+
+where
+
+$$A^{\epsilon}=\{ \omega:|Y(\omega)-y|\leq \epsilon \}.$$
+
+For the case that $P(\{Y=y\})>0$, define $E(X|Y=y)$ the way same as the above case w.r.t. an event.
+
+We regard $E(X|Y)$ as the function 
+
+$$
+\begin{align*}
+E(X|Y):&\Omega \rightarrow R\\
+&\omega \mapsto E(X|Y=Y(\omega)),\\
+\end{align*}
+$$
+
+which gives us a random variable that depends on $Y$.
+
+For absolutely continuous $(X,Y)$ with density function $f(x,y)$,
+
+$$E(g(X)|Y=y)=\frac{\int_{\Omega}1_{\{Y=y\}}g(X)P(d\omega)}{P(\{Y=y\})}=\frac{\int_R g(x)f(x,y)dx}{\int_R f(x,y)dx.}$$
+
+So,
+
+$$E(g(X)|Y)=\frac{\int_R g(x)f(x,Y)dx}{\int_R f(x,Y)dx.}$$
+
+> E(X|Y) means the average of $X$ given $Y$. More specifically, it means for any given value $Y=Y(\omega)$, $E(X|Y=Y(\omega))$ is the average of $X$ over the event $\{\omega:Y=Y(\omega)\}$. "Given" $Y$ means that the information carried by $Y$ is given. So $E(X|Y)$ shall still carry the information of $Y$.
+
+
+#### Modern definitions
+
+Conditional expectation w.r.t. $\sigma$-algebra
+
+Given a probability space $(\Omega,\tilde{\mathcal{F}},P)$ and a sub $\sigma$-algebra $\mathcal{F}$. Let $X$ be a $\tilde{\mathcal{F}}$-measurable r.v. with $E|X|<\infty$.
+
+> Definition (Conditional expectation given $\mathcal{F}$)
+> 
+> $E(X|\mathcal{F})$ is defined as any random variable $Y$ that satisfies
+> 
+> (i): $Y$ is $\mathcal{F}$-measurable;
+> 
+> (ii): for all $A\in \mathcal{F}$,
+> 
+> $$\int_A XdP=\int_AYdP. $$
+
+
