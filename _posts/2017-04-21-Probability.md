@@ -604,5 +604,10 @@ Given a probability space $(\Omega,\tilde{\mathcal{F}},P)$ and a sub $\sigma$-al
 > (ii): for all $A\in \mathcal{F}$,
 > 
 > $$\int_A XdP=\int_AYdP. $$
+>
+>(The existence and uniqueness of $Y$ are guaranteed.)
 
+[Remark 1] $\mathcal{F}$ represents the information we have at our disposal: for each $A\in\mathcal{F}$, we know whether $A$ has occurred or not.
+
+[Remart 2] $E(X|\mathcal{F})$ is the "best guess" of the value of $X$ given the information we have, i.e., $\mathcal{F}$.
 
